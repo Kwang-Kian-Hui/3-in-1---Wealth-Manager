@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class TxCategory{
   final int catId;
   int catType;

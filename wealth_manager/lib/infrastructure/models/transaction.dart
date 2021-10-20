@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Transaction{
   final int transId;
   int transType; // income (1), expense (2), transfer (3)
