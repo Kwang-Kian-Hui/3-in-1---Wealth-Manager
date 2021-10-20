@@ -7,36 +7,52 @@ class AuthenticationRepository {
   FirebaseAuthService _firebaseAuthService;
   AuthenticationRepository(this._firebaseAuthService);
 
-  // Future<Either<AuthFailure, Unit>> register(
-  //     String email, String password) async {
-  //   try {
-  //     await _firebaseAuthService.register(email: email, password: password);
-  //     return right(unit);
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'weak-password') {
-  //       return left(AuthFailure("", AuthFailureTypes.UserNotFound));
-  //     } else if (e.code == 'email-already-in-use') {
-  //       return left(AuthFailure("", AuthFailureTypes.WrongPassword));
-  //     }
-  //     return left(AuthFailure("", AuthFailureTypes.SystemError));
-  //   }
-  // }
+  Future<User?> getFirebaseUser() async {
+    final firebaseUser = await _firebaseAuthService.getFirebaseUser();
+    if(firebaseUser == null){
+      return null;
+    } else {
+      return firebaseUser;
+    }
+  }
 
-  // Future<Either<AuthFailure, Unit>> signIn(
-  //     String email, String password) async {
-  //   try {
-  //     await _firebaseAuthService.signIn(email: email, password: password);
+  Future<Either<AuthFailure, Unit>> register(
+      String email, String password) async {
+    try {
+      await _firebaseAuthService.register(email: email, password: password);
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        return left(AuthFailure.weakPassword("Please enter a stronger password."));
+      } else if (e.code == 'email-already-in-use') {
+        return left(AuthFailure.emailAlreadyInUse("Email already in use."));
+      }
+      return left(AuthFailure.unknownError("An unexpected error occurred."));
+    }
+  }
 
-  //     return right(unit);
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'user-not-found') {
-  //       return left(AuthFailure("", AuthFailureTypes.UserNotFound));
-  //     } else if (e.code == 'wrong-password') {
-  //       return left(AuthFailure("", AuthFailureTypes.WrongPassword));
-  //     }
-  //     return left(AuthFailure("", AuthFailureTypes.SystemError));
-  //   }
-  // }
+  Future<Either<AuthFailure, Unit>> signIn(
+      String email, String password) async {
+    try {
+      await _firebaseAuthService.signIn(email: email, password: password);
 
-  // Future<Either
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        return left(AuthFailure.userNotFound("User not found."));
+      } else if (e.code == 'wrong-password') {
+        return left(AuthFailure.wrongPassword("Wrong password entered."));
+      }
+      return left(AuthFailure.unknownError("An unexpected error occurred."));
+    }
+  }
+
+  Future<Either<AuthFailure, Unit>> signOut() async {
+    try{
+      await _firebaseAuthService.signOut();
+      return right(unit);
+    } on FirebaseAuthException{
+      return left(AuthFailure.unknownError("An unexpected error occurred"));
+    }
+  }
 }

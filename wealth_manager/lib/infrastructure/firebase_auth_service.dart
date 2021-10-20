@@ -1,6 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:wealth_manager/infrastructure/models/failures.dart';
 
 class FirebaseAuthService {
   final FirebaseAuth _firebaseAuth;
@@ -11,14 +9,14 @@ class FirebaseAuthService {
     // this._googleSignIn,
   );
 
-  // Future<User?> getFirebaseUser() {
-  //   return _firebaseAuth.authStateChanges().first;
-  // }
+  Future<User?> getFirebaseUser() {
+    return _firebaseAuth.authStateChanges().first;
+  }
 
-  // String getUserId() {
-  //   return _firebaseAuth.currentUser!.uid;
-  // }
-  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+  String getUserId() {
+    return _firebaseAuth.currentUser!.uid;
+  }
+
 
   Future<void> verifyUserEmail() async {
     User? user = FirebaseAuth.instance.currentUser;

@@ -5,9 +5,10 @@ part 'failures.freezed.dart';
 @freezed
 class AuthFailure with _$AuthFailure {
   const AuthFailure._();
-  const factory AuthFailure.WeakPassword(String errorMessage) = WeakPassword;
-  const factory AuthFailure.UserNotFound(String errorMessage) = UserNotFound;
-  const factory AuthFailure.WrongPassword(String errorMessage) = WrongPassword;
-  const factory AuthFailure.SystemError(String errorMessage) = SystemError;
-  const factory AuthFailure.noConnection() = NoConnection;
+  const factory AuthFailure.emailAlreadyInUse(String errorMessage) = _EmailAlreadyInUse;
+  const factory AuthFailure.weakPassword(String errorMessage) = _WeakPassword;
+  const factory AuthFailure.userNotFound(String errorMessage) = _UserNotFound;
+  const factory AuthFailure.wrongPassword(String errorMessage) = _WrongPassword;
+  const factory AuthFailure.unknownError(String errorMessage) = _SystemError;
+  const factory AuthFailure.noConnection() = _NoConnection;
 }

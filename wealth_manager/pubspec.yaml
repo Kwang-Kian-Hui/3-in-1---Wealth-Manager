@@ -25,9 +25,10 @@ dependencies:
   flutter:
     sdk: flutter
   dartz: ^0.10.0
-  flutter_riverpod: ^1.0.0-dev.11
   firebase_auth: ^3.1.3
   firebase_core: ^1.7.0
+  flutter_riverpod: ^1.0.0-dev.11
+  flutter_screenutil: ^5.0.0+2 # app responsiveness
   freezed_annotation: ^0.15.0
   google_sign_in: ^5.1.1
   
