@@ -16,10 +16,10 @@ class AuthenticationRepository {
     }
   }
 
-  Future<Either<AuthFailure, Unit>> register(
+  Future<Either<AuthFailure, Unit>> signUp(
       String email, String password) async {
     try {
-      await _firebaseAuthService.register(email: email, password: password);
+      await _firebaseAuthService.signUp(email: email, password: password);
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {

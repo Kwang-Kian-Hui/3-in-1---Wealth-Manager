@@ -2,11 +2,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/application/input_failures.dart';
 import 'package:wealth_manager/application/value_validators.dart';
 import 'package:wealth_manager/infrastructure/auth_repository.dart';
-import 'package:wealth_manager/infrastructure/models/auth/sign_in_state.dart';
+import 'package:wealth_manager/infrastructure/models/auth/sign_up_state.dart';
 
-class SignInNotifier extends StateNotifier<SignInState> {
+class SignUpNotifier extends StateNotifier<SignUpState> {
   final AuthenticationRepository _authRepository;
-  SignInNotifier(this._authRepository) : super(SignInState.initial());
+  SignUpNotifier(this._authRepository) : super(SignUpState.initial());
 
   void emailAddressChanged(String email) {
     // remove blank spaces
@@ -55,7 +55,7 @@ class SignInNotifier extends StateNotifier<SignInState> {
     state = stateCopy;
   }
 
-  Future<void> signIn() async {
+  Future<void> signUp() async {
     _validateInputs();
 
     //if the input are valid
@@ -65,20 +65,14 @@ class SignInNotifier extends StateNotifier<SignInState> {
         hasConnection: true,
       );
 
-      final signInResult =
-          await _authRepository.signIn(state.email, state.password);
+      final signUpResult =
+          await _authRepository.signUp(state.email, state.password);
 
-      signInResult.fold((authFailure) {
+      signUpResult.fold((authFailure) {
         authFailure.maybeMap(
-          userNotFound: (_) {
+          emailAlreadyInUse: (_) {
             state = state.copyWith(
-              emailErrorMessage: userNotFoundMessage,
-              isSaving: false,
-            );
-          },
-          wrongPassword: (_) {
-            state = state.copyWith(
-              passwordErrorMessage: wrongPasswordMessage,
+              emailErrorMessage: emailAlreadyInUseMessage,
               isSaving: false,
             );
           },

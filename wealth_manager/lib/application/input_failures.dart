@@ -11,5 +11,7 @@ class InputFailures with _$InputFailures {
 }
 
 final invalidEmailMessage = "Please enter a valid email";
-final emailAlreadyInUseMessage = "Please enter a valid email";
+final emailAlreadyInUseMessage = "Please enter a new email";
+final userNotFoundMessage = "The entered email is not registered";
 final invalidPasswordMessage = "Password must be 8 characters or longer and contain at least 1 numerical value";
+final wrongPasswordMessage = "The entered password is incorrect";

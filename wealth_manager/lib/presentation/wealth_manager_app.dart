@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_in_screen.dart';
+import 'package:wealth_manager/presentation/views/auth/sign_up_screen.dart';
 import 'package:wealth_manager/presentation/views/home_screen.dart';
 import 'package:wealth_manager/presentation/views/splash_screen.dart';
-import 'package:wealth_manager/shared/providers.dart';
 
 class WealthManagerApp extends ConsumerStatefulWidget {
   const WealthManagerApp({ Key? key }) : super(key: key);
@@ -27,6 +27,7 @@ class _WealthManagerAppState extends ConsumerState<WealthManagerApp> {
         routes: {
           SplashScreen.routeName: (context) => SplashScreen(),
           SignInScreen.routeName: (context) => SignInScreen(),
+          SignUpScreen.routeName: (context) => SignUpScreen(),
           HomeScreen.routeName: (context) => HomeScreen(),
           // AlarmSettingsScreen.routeName: (context) => AlarmSettingsScreen(),
           // AddEditAlarmScreen.routeName: (context) =>

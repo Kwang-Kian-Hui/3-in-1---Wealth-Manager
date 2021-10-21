@@ -45,7 +45,7 @@ class FirebaseAuthService {
     );
   }
 
-  Future<UserCredential> register(
+  Future<UserCredential> signUp(
       {required String email, required String password}) async {
     return _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
