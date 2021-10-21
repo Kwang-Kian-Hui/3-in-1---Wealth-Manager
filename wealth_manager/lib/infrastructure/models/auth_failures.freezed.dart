@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'failures.dart';
+part of 'auth_failures.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -19,12 +19,6 @@ class _$AuthFailureTearOff {
 
   _EmailAlreadyInUse emailAlreadyInUse(String errorMessage) {
     return _EmailAlreadyInUse(
-      errorMessage,
-    );
-  }
-
-  _WeakPassword weakPassword(String errorMessage) {
-    return _WeakPassword(
       errorMessage,
     );
   }
@@ -60,7 +54,6 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String errorMessage) emailAlreadyInUse,
-    required TResult Function(String errorMessage) weakPassword,
     required TResult Function(String errorMessage) userNotFound,
     required TResult Function(String errorMessage) wrongPassword,
     required TResult Function(String errorMessage) unknownError,
@@ -70,7 +63,6 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -80,7 +72,6 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -91,7 +82,6 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
-    required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_WrongPassword value) wrongPassword,
     required TResult Function(_SystemError value) unknownError,
@@ -101,7 +91,6 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -111,7 +100,6 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -203,7 +191,6 @@ class _$_EmailAlreadyInUse extends _EmailAlreadyInUse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String errorMessage) emailAlreadyInUse,
-    required TResult Function(String errorMessage) weakPassword,
     required TResult Function(String errorMessage) userNotFound,
     required TResult Function(String errorMessage) wrongPassword,
     required TResult Function(String errorMessage) unknownError,
@@ -216,7 +203,6 @@ class _$_EmailAlreadyInUse extends _EmailAlreadyInUse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -229,7 +215,6 @@ class _$_EmailAlreadyInUse extends _EmailAlreadyInUse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -246,7 +231,6 @@ class _$_EmailAlreadyInUse extends _EmailAlreadyInUse {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
-    required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_WrongPassword value) wrongPassword,
     required TResult Function(_SystemError value) unknownError,
@@ -259,7 +243,6 @@ class _$_EmailAlreadyInUse extends _EmailAlreadyInUse {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -272,7 +255,6 @@ class _$_EmailAlreadyInUse extends _EmailAlreadyInUse {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -293,164 +275,6 @@ abstract class _EmailAlreadyInUse extends AuthFailure {
   String get errorMessage;
   @JsonKey(ignore: true)
   _$EmailAlreadyInUseCopyWith<_EmailAlreadyInUse> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$WeakPasswordCopyWith<$Res> {
-  factory _$WeakPasswordCopyWith(
-          _WeakPassword value, $Res Function(_WeakPassword) then) =
-      __$WeakPasswordCopyWithImpl<$Res>;
-  $Res call({String errorMessage});
-}
-
-/// @nodoc
-class __$WeakPasswordCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
-    implements _$WeakPasswordCopyWith<$Res> {
-  __$WeakPasswordCopyWithImpl(
-      _WeakPassword _value, $Res Function(_WeakPassword) _then)
-      : super(_value, (v) => _then(v as _WeakPassword));
-
-  @override
-  _WeakPassword get _value => super._value as _WeakPassword;
-
-  @override
-  $Res call({
-    Object? errorMessage = freezed,
-  }) {
-    return _then(_WeakPassword(
-      errorMessage == freezed
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_WeakPassword extends _WeakPassword {
-  const _$_WeakPassword(this.errorMessage) : super._();
-
-  @override
-  final String errorMessage;
-
-  @override
-  String toString() {
-    return 'AuthFailure.weakPassword(errorMessage: $errorMessage)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _WeakPassword &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, errorMessage);
-
-  @JsonKey(ignore: true)
-  @override
-  _$WeakPasswordCopyWith<_WeakPassword> get copyWith =>
-      __$WeakPasswordCopyWithImpl<_WeakPassword>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String errorMessage) emailAlreadyInUse,
-    required TResult Function(String errorMessage) weakPassword,
-    required TResult Function(String errorMessage) userNotFound,
-    required TResult Function(String errorMessage) wrongPassword,
-    required TResult Function(String errorMessage) unknownError,
-    required TResult Function() noConnection,
-  }) {
-    return weakPassword(errorMessage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
-    TResult Function(String errorMessage)? userNotFound,
-    TResult Function(String errorMessage)? wrongPassword,
-    TResult Function(String errorMessage)? unknownError,
-    TResult Function()? noConnection,
-  }) {
-    return weakPassword?.call(errorMessage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
-    TResult Function(String errorMessage)? userNotFound,
-    TResult Function(String errorMessage)? wrongPassword,
-    TResult Function(String errorMessage)? unknownError,
-    TResult Function()? noConnection,
-    required TResult orElse(),
-  }) {
-    if (weakPassword != null) {
-      return weakPassword(errorMessage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
-    required TResult Function(_WeakPassword value) weakPassword,
-    required TResult Function(_UserNotFound value) userNotFound,
-    required TResult Function(_WrongPassword value) wrongPassword,
-    required TResult Function(_SystemError value) unknownError,
-    required TResult Function(_NoConnection value) noConnection,
-  }) {
-    return weakPassword(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_SystemError value)? unknownError,
-    TResult Function(_NoConnection value)? noConnection,
-  }) {
-    return weakPassword?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_WrongPassword value)? wrongPassword,
-    TResult Function(_SystemError value)? unknownError,
-    TResult Function(_NoConnection value)? noConnection,
-    required TResult orElse(),
-  }) {
-    if (weakPassword != null) {
-      return weakPassword(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WeakPassword extends AuthFailure {
-  const factory _WeakPassword(String errorMessage) = _$_WeakPassword;
-  const _WeakPassword._() : super._();
-
-  String get errorMessage;
-  @JsonKey(ignore: true)
-  _$WeakPasswordCopyWith<_WeakPassword> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -519,7 +343,6 @@ class _$_UserNotFound extends _UserNotFound {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String errorMessage) emailAlreadyInUse,
-    required TResult Function(String errorMessage) weakPassword,
     required TResult Function(String errorMessage) userNotFound,
     required TResult Function(String errorMessage) wrongPassword,
     required TResult Function(String errorMessage) unknownError,
@@ -532,7 +355,6 @@ class _$_UserNotFound extends _UserNotFound {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -545,7 +367,6 @@ class _$_UserNotFound extends _UserNotFound {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -562,7 +383,6 @@ class _$_UserNotFound extends _UserNotFound {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
-    required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_WrongPassword value) wrongPassword,
     required TResult Function(_SystemError value) unknownError,
@@ -575,7 +395,6 @@ class _$_UserNotFound extends _UserNotFound {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -588,7 +407,6 @@ class _$_UserNotFound extends _UserNotFound {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -677,7 +495,6 @@ class _$_WrongPassword extends _WrongPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String errorMessage) emailAlreadyInUse,
-    required TResult Function(String errorMessage) weakPassword,
     required TResult Function(String errorMessage) userNotFound,
     required TResult Function(String errorMessage) wrongPassword,
     required TResult Function(String errorMessage) unknownError,
@@ -690,7 +507,6 @@ class _$_WrongPassword extends _WrongPassword {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -703,7 +519,6 @@ class _$_WrongPassword extends _WrongPassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -720,7 +535,6 @@ class _$_WrongPassword extends _WrongPassword {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
-    required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_WrongPassword value) wrongPassword,
     required TResult Function(_SystemError value) unknownError,
@@ -733,7 +547,6 @@ class _$_WrongPassword extends _WrongPassword {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -746,7 +559,6 @@ class _$_WrongPassword extends _WrongPassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -835,7 +647,6 @@ class _$_SystemError extends _SystemError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String errorMessage) emailAlreadyInUse,
-    required TResult Function(String errorMessage) weakPassword,
     required TResult Function(String errorMessage) userNotFound,
     required TResult Function(String errorMessage) wrongPassword,
     required TResult Function(String errorMessage) unknownError,
@@ -848,7 +659,6 @@ class _$_SystemError extends _SystemError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -861,7 +671,6 @@ class _$_SystemError extends _SystemError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -878,7 +687,6 @@ class _$_SystemError extends _SystemError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
-    required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_WrongPassword value) wrongPassword,
     required TResult Function(_SystemError value) unknownError,
@@ -891,7 +699,6 @@ class _$_SystemError extends _SystemError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -904,7 +711,6 @@ class _$_SystemError extends _SystemError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -969,7 +775,6 @@ class _$_NoConnection extends _NoConnection {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String errorMessage) emailAlreadyInUse,
-    required TResult Function(String errorMessage) weakPassword,
     required TResult Function(String errorMessage) userNotFound,
     required TResult Function(String errorMessage) wrongPassword,
     required TResult Function(String errorMessage) unknownError,
@@ -982,7 +787,6 @@ class _$_NoConnection extends _NoConnection {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -995,7 +799,6 @@ class _$_NoConnection extends _NoConnection {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String errorMessage)? emailAlreadyInUse,
-    TResult Function(String errorMessage)? weakPassword,
     TResult Function(String errorMessage)? userNotFound,
     TResult Function(String errorMessage)? wrongPassword,
     TResult Function(String errorMessage)? unknownError,
@@ -1012,7 +815,6 @@ class _$_NoConnection extends _NoConnection {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
-    required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_UserNotFound value) userNotFound,
     required TResult Function(_WrongPassword value) wrongPassword,
     required TResult Function(_SystemError value) unknownError,
@@ -1025,7 +827,6 @@ class _$_NoConnection extends _NoConnection {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,
@@ -1038,7 +839,6 @@ class _$_NoConnection extends _NoConnection {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_UserNotFound value)? userNotFound,
     TResult Function(_WrongPassword value)? wrongPassword,
     TResult Function(_SystemError value)? unknownError,

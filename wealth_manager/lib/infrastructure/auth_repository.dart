@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wealth_manager/infrastructure/firebase_auth_service.dart';
-import 'package:wealth_manager/infrastructure/models/failures.dart';
+import 'package:wealth_manager/infrastructure/models/auth_failures.dart';
 
 class AuthenticationRepository {
   FirebaseAuthService _firebaseAuthService;
@@ -22,9 +22,7 @@ class AuthenticationRepository {
       await _firebaseAuthService.register(email: email, password: password);
       return right(unit);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        return left(AuthFailure.weakPassword("Please enter a stronger password."));
-      } else if (e.code == 'email-already-in-use') {
+      if (e.code == 'email-already-in-use') {
         return left(AuthFailure.emailAlreadyInUse("Email already in use."));
       }
       return left(AuthFailure.unknownError("An unexpected error occurred."));

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wealth_manager/infrastructure/models/auth_state.dart';
+import 'package:wealth_manager/infrastructure/models/auth/auth_state.dart';
+import 'package:wealth_manager/presentation/views/auth/sign_in_page.dart';
+import 'package:wealth_manager/presentation/views/home_page.dart';
 import 'package:wealth_manager/shared/providers.dart';
 
 class AuthenticationWrapper extends ConsumerWidget {
@@ -13,11 +15,10 @@ class AuthenticationWrapper extends ConsumerWidget {
     ref.listen<AuthState>(authNotifierProvider, (state) {
       state.maybeWhen(
         authenticated: (firebaseUser) {
-          // navigate home page
-          // Navigator.of(context).pushNamed(routeName);
+          Navigator.of(context).pushReplacementNamed(HomePage.routeName);
         },
         unauthenticated: () {
-          // Navigator.of(context).pushReplacementNamed(routeName);
+          Navigator.of(context).pushReplacementNamed(SignInPage.routeName);
         },
         orElse: () {},
       );
@@ -36,7 +37,8 @@ class AuthenticationWrapper extends ConsumerWidget {
           // textTheme: appTextTheme,
         ),
         routes: {
-          
+          HomePage.routeName: (context) => HomePage(),
+          SignInPage.routeName: (context) => SignInPage(),
           // ProminentDisclosureScreen.routeName: (context) => ProminentDisclosureScreen(),
           // AlarmListScreen.routeName: (context) => AlarmListScreen(),
           // AlarmSettingsScreen.routeName: (context) => AlarmSettingsScreen(),
