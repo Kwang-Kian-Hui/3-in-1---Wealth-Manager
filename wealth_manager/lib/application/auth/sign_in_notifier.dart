@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/application/input_failures.dart';
 import 'package:wealth_manager/application/value_validators.dart';
-import 'package:wealth_manager/infrastructure/authentication_repository.dart';
+import 'package:wealth_manager/infrastructure/auth_repository.dart';
 import 'package:wealth_manager/infrastructure/models/auth/sign_in_state.dart';
 
 class SignInNotifier extends StateNotifier<SignInState>{

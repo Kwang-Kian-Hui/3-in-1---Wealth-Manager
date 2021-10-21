@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wealth_manager/application/auth/auth_notifier.dart';
 import 'package:wealth_manager/infrastructure/models/auth/sign_in_state.dart';
-import 'package:wealth_manager/presentation/views/home_page.dart';
+import 'package:wealth_manager/presentation/views/forms/sign_in_form.dart';
+import 'package:wealth_manager/presentation/views/home_screen.dart';
 import 'package:wealth_manager/presentation/widgets/progress_indicator_overlay.dart';
 import 'package:wealth_manager/shared/providers.dart';
 
-class SignInPage extends ConsumerWidget {
-  const SignInPage({Key? key}) : super(key: key);
-  static const routeName = 'sign-in-page-route';
+class SignInScreen extends ConsumerWidget {
+  const SignInScreen({Key? key}) : super(key: key);
+  static const routeName = 'sign-in-screen-route';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen<SignInState>(signInNotifierProvider, (state) {
       if (state.successful)
-        Navigator.of(context).pushReplacementNamed(HomePage.routeName);
+        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
     });
     ref.listen<bool>(
         signInNotifierProvider.select((state) => state.hasConnection), (state) {
@@ -28,7 +31,23 @@ class SignInPage extends ConsumerWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(), //sign in form
+          Column(
+            children: [
+              Flexible(child: Container()),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  constraints: BoxConstraints(maxWidth: 150.w),
+                  child: const Icon(Icons.account_balance),
+                ),
+              ),
+              Expanded(
+                flex: 6,
+                child: SafeArea(child: const SignInForm()),
+              ), //sign in form
+            ],
+          ),
           ProgressIndicatorOverlay(
             isSaving: ref.watch(
                 signInNotifierProvider.select((state) => state.isSaving)),

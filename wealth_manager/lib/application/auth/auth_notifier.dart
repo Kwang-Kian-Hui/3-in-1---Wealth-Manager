@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wealth_manager/infrastructure/authentication_repository.dart';
+import 'package:wealth_manager/infrastructure/auth_repository.dart';
 import 'package:wealth_manager/infrastructure/models/auth/auth_state.dart';
 
 class AuthNotifier extends StateNotifier<AuthState> {
@@ -7,6 +7,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
   AuthNotifier(this._authRepository) : super(const AuthState.initial());
 
   Future<void> checkIfUserIsAuthenticated() async {
+    print("check if authenticated");
     final firebaseUser = await _authRepository.getFirebaseUser();
     firebaseUser == null
         ? state = const AuthState.unauthenticated()
