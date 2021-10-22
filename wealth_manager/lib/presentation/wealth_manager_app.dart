@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wealth_manager/presentation/views/accounts_screen.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_in_screen.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_up_screen.dart';
+import 'package:wealth_manager/presentation/views/expenses_screen.dart';
 import 'package:wealth_manager/presentation/views/home_screen.dart';
+import 'package:wealth_manager/presentation/views/insurance_screen.dart';
+import 'package:wealth_manager/presentation/views/investment_screen.dart';
+import 'package:wealth_manager/presentation/views/settings_screen.dart';
 import 'package:wealth_manager/presentation/views/splash_screen.dart';
 
 class WealthManagerApp extends ConsumerStatefulWidget {
@@ -28,7 +33,16 @@ class _WealthManagerAppState extends ConsumerState<WealthManagerApp> {
           SplashScreen.routeName: (context) => SplashScreen(),
           SignInScreen.routeName: (context) => SignInScreen(),
           SignUpScreen.routeName: (context) => SignUpScreen(),
+          
           HomeScreen.routeName: (context) => HomeScreen(),
+          InvestmentScreen.routeName: (context) => InvestmentScreen(),
+          InsuranceScreen.routeName: (context) => InsuranceScreen(),
+          AccountsScreen.routeName: (context) => AccountsScreen(),
+          ExpensesScreen.routeName: (context) => ExpensesScreen(),
+          SettingsScreen.routeName: (context) => SettingsScreen(),
+          
+
+
           // AlarmSettingsScreen.routeName: (context) => AlarmSettingsScreen(),
           // AddEditAlarmScreen.routeName: (context) =>
           //     ProviderScope(child: AddEditAlarmScreen()),

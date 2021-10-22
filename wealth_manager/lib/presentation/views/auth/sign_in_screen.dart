@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wealth_manager/application/auth/auth_notifier.dart';
 import 'package:wealth_manager/infrastructure/models/auth/sign_in_state.dart';
 import 'package:wealth_manager/presentation/views/forms/sign_in_form.dart';
 import 'package:wealth_manager/presentation/views/home_screen.dart';
