@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:wealth_manager/infrastructure/firebase_account_initialisation.dart';
 import 'package:wealth_manager/infrastructure/firebase_auth_service.dart';
+import 'package:wealth_manager/infrastructure/firestore_remote_service.dart';
 import 'package:wealth_manager/infrastructure/models/auth/auth_failures.dart';
 
 class AuthenticationRepository {
   final FirebaseAuthService _firebaseAuthService;
-  final FirebaseAccountInitialisation _accountInitialisation;
-  AuthenticationRepository(this._firebaseAuthService, this._accountInitialisation);
+  final FirestoreRemoteService _firestoreRemoteService;
+  AuthenticationRepository(this._firebaseAuthService, this._firestoreRemoteService);
   // FirebaseAccountInitialisation;
 
   Future<User?> getFirebaseUser() async {
@@ -26,7 +26,7 @@ class AuthenticationRepository {
       if(newUserCredential.user == null){
         throw AuthFailure.unknownError('no user found after creation');
       }
-      await _accountInitialisation.createCollectionDocForNewUser(newUserCredential.user!.uid);
+      await _firestoreRemoteService.createCollectionDocForNewUser(newUserCredential.user!.uid);
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {

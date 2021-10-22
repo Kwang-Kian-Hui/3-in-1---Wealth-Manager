@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:wealth_manager/infrastructure/dto_models/account_dto.dart';
 
-class FirebaseAccountInitialisation{
+class FirestoreRemoteService{
   final FirebaseFirestore _firebaseFirestore;
 
-  FirebaseAccountInitialisation(this._firebaseFirestore);
+  FirestoreRemoteService(this._firebaseFirestore);
 
   Future<void> createCollectionDocForNewUser(String uid) async {
     // consider using batch for populating default values
@@ -15,4 +16,6 @@ class FirebaseAccountInitialisation{
       'accNote': '',
     });
   }
+
+  // Future
 }

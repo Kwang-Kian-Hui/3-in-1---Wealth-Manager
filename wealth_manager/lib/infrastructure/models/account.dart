@@ -1,26 +1,23 @@
 class Account{
   final int accId;
-  String title;
+  String accName;
   double accBalance;
-  int accColor;
   int accIcon;
-  String? accNote;
+  String accNote;
 
   Account({
     required this.accId,
-    required this.title,
+    required this.accName,
     required this.accBalance,
-    required this.accColor,
     required this.accIcon,
-    this.accNote,
+    required this.accNote,
   });
 
   Map<String, dynamic> toMap(){
     return{
       'accId': accId,
-      'accTitle': title,
+      'accTitle': accName,
       'accBalance': accBalance,
-      'accColor': accColor,
       'accIcon': accIcon,
       'accNote': accNote,
     };

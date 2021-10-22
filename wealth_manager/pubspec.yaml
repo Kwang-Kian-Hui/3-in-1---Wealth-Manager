@@ -32,6 +32,7 @@ dependencies:
   flutter_screenutil: ^5.0.0+2 # app responsiveness
   freezed_annotation: ^0.15.0 # state management
   google_sign_in: ^5.1.1
+  json_annotation: ^4.3.0 # for data transfer object files
   
 
   # The following adds the Cupertino Icons font to your application.
@@ -43,6 +44,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^0.15.0+1 
+  json_serializable: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
