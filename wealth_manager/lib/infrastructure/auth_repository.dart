@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wealth_manager/infrastructure/firebase_auth_service.dart';
-import 'package:wealth_manager/infrastructure/firestore_remote_service.dart';
+import 'package:wealth_manager/infrastructure/account_remote_service.dart';
 import 'package:wealth_manager/infrastructure/models/auth/auth_failures.dart';
 
 class AuthenticationRepository {
   final FirebaseAuthService _firebaseAuthService;
-  final FirestoreRemoteService _firestoreRemoteService;
+  final AccountRemoteService _firestoreRemoteService;
   AuthenticationRepository(this._firebaseAuthService, this._firestoreRemoteService);
   // FirebaseAccountInitialisation;
 

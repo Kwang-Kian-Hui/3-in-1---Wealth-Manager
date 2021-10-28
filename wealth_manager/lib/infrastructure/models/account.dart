@@ -1,5 +1,5 @@
 class Account{
-  final int accId;
+  final String accId;
   String accName;
   double accBalance;
   int accIcon;

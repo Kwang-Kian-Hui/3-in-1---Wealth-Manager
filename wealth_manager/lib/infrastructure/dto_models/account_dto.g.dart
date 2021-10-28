@@ -7,7 +7,7 @@ part of 'account_dto.dart';
 // **************************************************************************
 
 _$_AccountDTO _$$_AccountDTOFromJson(Map json) => _$_AccountDTO(
-      accId: json['accId'] as int,
+      accId: json['accId'] as String,
       accName: json['accName'] as String,
       accBalance: (json['accBalance'] as num).toDouble(),
       accIcon: json['accIcon'] as int,

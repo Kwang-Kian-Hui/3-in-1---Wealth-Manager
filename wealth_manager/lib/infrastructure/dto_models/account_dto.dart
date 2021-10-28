@@ -9,7 +9,7 @@ part 'account_dto.g.dart';
 class AccountDTO with _$AccountDTO {
   const AccountDTO._();
   const factory AccountDTO({
-    required int accId,
+    required String accId,
     required String accName,
     required double accBalance,
     required int accIcon,

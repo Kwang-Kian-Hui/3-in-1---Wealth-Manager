@@ -22,7 +22,7 @@ class _$AccountDTOTearOff {
   const _$AccountDTOTearOff();
 
   _AccountDTO call(
-      {required int accId,
+      {required String accId,
       required String accName,
       required double accBalance,
       required int accIcon,
@@ -46,7 +46,7 @@ const $AccountDTO = _$AccountDTOTearOff();
 
 /// @nodoc
 mixin _$AccountDTO {
-  int get accId => throw _privateConstructorUsedError;
+  String get accId => throw _privateConstructorUsedError;
   String get accName => throw _privateConstructorUsedError;
   double get accBalance => throw _privateConstructorUsedError;
   int get accIcon => throw _privateConstructorUsedError;
@@ -64,7 +64,7 @@ abstract class $AccountDTOCopyWith<$Res> {
           AccountDTO value, $Res Function(AccountDTO) then) =
       _$AccountDTOCopyWithImpl<$Res>;
   $Res call(
-      {int accId,
+      {String accId,
       String accName,
       double accBalance,
       int accIcon,
@@ -91,7 +91,7 @@ class _$AccountDTOCopyWithImpl<$Res> implements $AccountDTOCopyWith<$Res> {
       accId: accId == freezed
           ? _value.accId
           : accId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       accName: accName == freezed
           ? _value.accName
           : accName // ignore: cast_nullable_to_non_nullable
@@ -119,7 +119,7 @@ abstract class _$AccountDTOCopyWith<$Res> implements $AccountDTOCopyWith<$Res> {
       __$AccountDTOCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int accId,
+      {String accId,
       String accName,
       double accBalance,
       int accIcon,
@@ -148,7 +148,7 @@ class __$AccountDTOCopyWithImpl<$Res> extends _$AccountDTOCopyWithImpl<$Res>
       accId: accId == freezed
           ? _value.accId
           : accId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       accName: accName == freezed
           ? _value.accName
           : accName // ignore: cast_nullable_to_non_nullable
@@ -184,7 +184,7 @@ class _$_AccountDTO extends _AccountDTO {
       _$$_AccountDTOFromJson(json);
 
   @override
-  final int accId;
+  final String accId;
   @override
   final String accName;
   @override
@@ -229,7 +229,7 @@ class _$_AccountDTO extends _AccountDTO {
 
 abstract class _AccountDTO extends AccountDTO {
   const factory _AccountDTO(
-      {required int accId,
+      {required String accId,
       required String accName,
       required double accBalance,
       required int accIcon,
@@ -240,7 +240,7 @@ abstract class _AccountDTO extends AccountDTO {
       _$_AccountDTO.fromJson;
 
   @override
-  int get accId;
+  String get accId;
   @override
   String get accName;
   @override
