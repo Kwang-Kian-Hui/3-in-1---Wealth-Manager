@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/application/account/account_list_state.dart';
 import 'package:wealth_manager/infrastructure/account_repository.dart';
+import 'package:wealth_manager/infrastructure/models/account.dart';
 
 class AccountListNotifier extends StateNotifier<AccountListState> {
   final AccountRepository _accountRepository;
@@ -14,7 +15,19 @@ class AccountListNotifier extends StateNotifier<AccountListState> {
 
     getAccountResult.fold(
       (failure) => state = AccountListState.failure(failure),
-      (accountList) => state = AccountListState.loaded(accountList),
+      (accountList) {
+        print(accountList.length);
+        state = AccountListState.loaded(accountList);
+      },
     );
+  }
+
+  double getNetWorthOfAccountsList(List<Account> accountList) {
+    double netWorth = 0.0;
+    for (var acc in accountList) {
+      netWorth += acc.accBalance;
+    }
+    print("networth is : " + netWorth.toStringAsFixed(2));
+    return netWorth;
   }
 }

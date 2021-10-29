@@ -38,6 +38,18 @@ class AccountRemoteService {
 
   Future<void> addNewAccount(AccountDTO newAcc) async {
     String uid = getUserId();
+    // get account id
+    final newId = generateNewAccountId();
+
+    // set new account id
+    newAcc = AccountDTO(
+      accId: newId,
+      accName: newAcc.accName,
+      accBalance: newAcc.accBalance,
+      accIcon: newAcc.accIcon,
+      accNote: newAcc.accNote,
+    );
+
     return await _firebaseFirestore
         .collection('users')
         .doc(uid)
