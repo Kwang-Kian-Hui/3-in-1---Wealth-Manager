@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wealth_manager/presentation/views/accounts/account_list_item.dart';
 import 'package:wealth_manager/shared/providers.dart';
 
 class AccountsScreen extends ConsumerStatefulWidget {
@@ -47,12 +48,18 @@ class _AccountsScreenState extends ConsumerState<AccountsScreen> {
                     .read(accountListNotifierProvider.notifier)
                     .getNetWorthOfAccountsList(loaded.accountList),
               ),
-              // ListView.builder(
-              //   itemCount: loaded.accountList.length,
-              //   itemBuilder: (context, index) => ProviderScope(overrides: [
-              //     currentAccountItem.overrideWithValue(loaded.accountList[index]),
-              //   ], child: const AlarmListItem()),
-              // ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: loaded.accountList.length,
+                  itemBuilder: (context, index) => ProviderScope(
+                    overrides: [
+                      currentAccountItem
+                          .overrideWithValue(loaded.accountList[index]),
+                    ],
+                    child: const AccountListItem(),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

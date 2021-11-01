@@ -19,29 +19,31 @@ class AccountListItem extends ConsumerWidget {
         elevation: 2,
         child: ListTile(
           leading: Container(
-            height: 40.h,
+            alignment: Alignment.center,
+            height: 100.h,
             width: 40.w,
             child: Icon(Icons.account_balance),
           ),
           title: Container(
-            height: 48.h,
+            height: 35.h,
             width: 165.w,
             child: Align(
               alignment: Alignment.bottomLeft,
-              child: Text(account.accName),
+              child: Text(account.accName, style: TextStyle(fontSize: 16.w, overflow: TextOverflow.ellipsis)),
             ),
           ),
           subtitle: Container(
-            height: 48.h,
+            height: 60.h,
             width: 165.w,
             child: Align(
               alignment: Alignment.topLeft,
-              child: Text(account.accNote),
+              child: Text(account.accNote,  style: TextStyle(fontSize: 12.w, overflow: TextOverflow.ellipsis), maxLines: 3),
             ),
           ),
           trailing: Container(
+            alignment: Alignment.centerRight,
             width: 110.w,
-            child: Text("\$ ${account.accBalance.toStringAsFixed(2)}"),
+            child: Text("\$ ${account.accBalance.toStringAsFixed(2)}", style: TextStyle(fontWeight: FontWeight.bold), textAlign: TextAlign.end),
           ),
         ),
       ),
