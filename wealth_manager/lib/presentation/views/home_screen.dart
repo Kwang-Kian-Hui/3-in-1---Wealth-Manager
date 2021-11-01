@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wealth_manager/presentation/views/accounts_screen.dart';
+import 'package:wealth_manager/presentation/views/accounts/accounts_screen.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_in_screen.dart';
 import 'package:wealth_manager/presentation/views/expenses_screen.dart';
 import 'package:wealth_manager/presentation/views/insurance_screen.dart';
