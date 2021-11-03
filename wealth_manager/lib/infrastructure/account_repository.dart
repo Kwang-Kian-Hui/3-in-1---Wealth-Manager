@@ -27,6 +27,19 @@ class AccountRepository {
 
   Future<Either<FirebaseFailures, Unit>> addNewAccount(Account newAcc) async {
     try {
+      print("repo try to add new acc");
+      await _accountRemoteService.addNewAccount(AccountDTO.fromDomain(newAcc));
+      return right(unit);
+    } on FirebaseException catch (error) {
+      if (error.code == 'cancelled') {
+        return left(const FirebaseFailures.cancelledOperation());
+      }
+      return left(const FirebaseFailures.unknown());
+    }
+  }
+
+  Future<Either<FirebaseFailures, Unit>> updateAccount(Account newAcc) async {
+    try {
       await _accountRemoteService.addNewAccount(AccountDTO.fromDomain(newAcc));
       return right(unit);
     } on FirebaseException catch (error) {

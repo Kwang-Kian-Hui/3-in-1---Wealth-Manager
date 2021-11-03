@@ -50,6 +50,8 @@ class AccountRemoteService {
       accNote: newAcc.accNote,
     );
 
+    print("remoteservice try to add new acc");
+
     return await _firebaseFirestore
         .collection('users')
         .doc(uid)

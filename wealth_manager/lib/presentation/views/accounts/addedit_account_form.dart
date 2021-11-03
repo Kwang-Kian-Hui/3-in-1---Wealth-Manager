@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
@@ -73,7 +74,7 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
                 Container(
                   height: 120.h,
                   width: 410.w,
-                  padding: EdgeInsets.only(left: 55.w),
+                  padding: EdgeInsets.only(left: 30.w),
                   alignment: Alignment.center,
                   child: Row(
                     children: [
@@ -84,7 +85,7 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
                           "Account Icon:",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 20.sp,
+                            fontSize: 18.sp,
                           ),
                         ),
                       ),
@@ -99,16 +100,22 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
                               width: 50.w,
                               height: 50.w,
                               decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Colors.grey,
-                                ),
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(50.w),
                                 ),
+                                color: Colors.grey,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    spreadRadius: 2,
+                                    blurRadius: 2,
+                                    offset: Offset(0, 3),
+                                  ),
+                                ],
                               ),
                               child: Icon(
                                 val,
-                                color: Colors.grey,
+                                color: Colors.white,
                               ),
                             );
                           },
@@ -119,136 +126,179 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
                 ),
                 // acc icon-end
                 // account name-start
+
                 Container(
-                  height: 90.h,
-                  width: 350.w,
-                  padding: EdgeInsets.only(left: 55.w),
-                  child: TextFormField(
-                    initialValue: ref
-                        .read(addEditAccountFormNotifierProvider)
-                        .accountName,
-                    onChanged: (newAccName) {
-                      ref
-                          .read(addEditAccountFormNotifierProvider.notifier)
-                          .accountNameChanged(newAccName);
-                    },
-                    decoration: InputDecoration(
-                      focusColor: Colors.black,
-                      labelText: ref.watch(addEditAccountFormNotifierProvider
-                                  .select((state) =>
-                                      state.accountNameErrorMessage)) ==
-                              null
-                          ? "Enter account name"
-                          : null,
-                      errorText: ref.watch(addEditAccountFormNotifierProvider
-                              .select((state) => state.showErrorMessage))
-                          ? ref.watch(addEditAccountFormNotifierProvider
-                              .select((state) => state.accountNameErrorMessage))
-                          : null,
-                      focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          // TODO: theme color
-                          // color: Colors.blue,
-                          width: 2,
+                  height: 70.h,
+                  width: 380.w,
+                  padding: EdgeInsets.only(left: 30.w),
+                  child: Card(
+                    elevation: 2,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10.w, right: 10.w),
+                      child: TextFormField(
+                        initialValue: ref
+                            .read(addEditAccountFormNotifierProvider)
+                            .accountName,
+                        onChanged: (newAccName) {
+                          ref
+                              .read(addEditAccountFormNotifierProvider.notifier)
+                              .accountNameChanged(newAccName);
+                        },
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          labelText: ref.watch(
+                                      addEditAccountFormNotifierProvider.select(
+                                          (state) =>
+                                              state.accountNameErrorMessage)) ==
+                                  null
+                              ? "Enter account name"
+                              : null,
+                          errorText: ref.watch(
+                                  addEditAccountFormNotifierProvider.select(
+                                      (state) => state.showErrorMessage))
+                              ? ref.watch(
+                                  addEditAccountFormNotifierProvider.select(
+                                      (state) => state.accountNameErrorMessage))
+                              : null,
+                        ),
+                        style: TextStyle(
+                          fontSize: 16.sp,
                         ),
                       ),
-                      enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.grey,
-                          width: 2,
-                        ),
-                      ),
-                    ),
-                    style: TextStyle(
-                      fontSize: 16.sp,
                     ),
                   ),
                 ),
                 // account name-end
+                SizedBox(
+                  height: 20.h,
+                ),
                 // account balance-start
                 Container(
-                  height: 90.h,
-                  width: 350.w,
-                  padding: EdgeInsets.only(left: 55.w),
-                  child: TextFormField(
-                    initialValue: ref
-                        .read(addEditAccountFormNotifierProvider)
-                        .accountBalanceString,
-                    onChanged: (newAccBalance) {
-                      ref
-                          .read(addEditAccountFormNotifierProvider.notifier)
-                          .accountBalanceChanged(newAccBalance);
-                    },
-                    decoration: InputDecoration(
-                      focusColor: Colors.black,
-                      labelText: ref.watch(addEditAccountFormNotifierProvider
+                  height: 70.h,
+                  width: 380.w,
+                  padding: EdgeInsets.only(left: 30.w),
+                  child: Card(
+                    elevation: 2,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10.w, right: 10.w),
+                      child: TextFormField(
+                        initialValue: ref
+                            .read(addEditAccountFormNotifierProvider)
+                            .accountBalanceString,
+                        onChanged: (newAccBalance) {
+                          ref
+                              .read(addEditAccountFormNotifierProvider.notifier)
+                              .accountBalanceChanged(newAccBalance);
+                        },
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          labelText: ref.watch(
+                                      addEditAccountFormNotifierProvider.select(
+                                          (state) => state
+                                              .accountBalanceErrorMessage)) ==
+                                  null
+                              ? "Enter account balance"
+                              : null,
+                          errorText: ref.watch(
+                                  addEditAccountFormNotifierProvider.select(
+                                      (state) => state.showErrorMessage))
+                              ? ref.watch(addEditAccountFormNotifierProvider
                                   .select((state) =>
-                                      state.accountBalanceErrorMessage)) ==
-                              null
-                          ? "Enter account balance"
-                          : null,
-                      errorText: ref.watch(addEditAccountFormNotifierProvider
-                              .select((state) => state.showErrorMessage))
-                          ? ref.watch(addEditAccountFormNotifierProvider.select(
-                              (state) => state.accountBalanceErrorMessage))
-                          : null,
-                      focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          // TODO: theme color
-                          // color: Colors.blue,
-                          width: 2,
+                                      state.accountBalanceErrorMessage))
+                              : null,
+                        ),
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          LengthLimitingTextInputFormatter(
+                              12), // max limit of $9,999,999.99
+                          FilteringTextInputFormatter.allow(
+                            RegExp(r'^(\d+)?\.?\d{0,2}'),
+                          ),
+                        ],
+                        style: TextStyle(
+                          fontSize: 16.sp,
                         ),
                       ),
-                      enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.grey,
-                          width: 2,
-                        ),
-                      ),
-                    ),
-                    style: TextStyle(
-                      fontSize: 16.sp,
                     ),
                   ),
                 ),
                 // account balance-end
+                SizedBox(
+                  height: 20.h,
+                ),
                 // account note-start
                 Container(
-                  height: 90.h,
-                  width: 350.w,
-                  padding: EdgeInsets.only(left: 55.w),
-                  child: TextFormField(
-                    initialValue: ref
-                        .read(addEditAccountFormNotifierProvider)
-                        .accountBalanceString,
-                    onChanged: (newAccNote) {
-                      ref
-                          .read(addEditAccountFormNotifierProvider.notifier)
-                          .accountBalanceChanged(newAccNote);
-                    },
-                    decoration: InputDecoration(
-                      focusColor: Colors.black,
-                      labelText: "Enter account note",
-                      focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          // TODO: theme color
-                          // color: Colors.blue,
-                          width: 2,
+                  height: 70.h,
+                  width: 380.w,
+                  padding: EdgeInsets.only(left: 30.w),
+                  // decoration: BoxDecoration(
+                  //   borderRadius: BorderRadius.all(Radius.circular(20.w),),
+                  // ),
+                  child: Card(
+                    elevation: 2,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10.w, right: 10.w),
+                      child: TextFormField(
+                        initialValue: ref
+                            .read(addEditAccountFormNotifierProvider)
+                            .accountBalanceString,
+                        onChanged: (newAccNote) {
+                          ref
+                              .read(addEditAccountFormNotifierProvider.notifier)
+                              .accountNoteChanged(newAccNote);
+                        },
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          labelText: "Enter account note",
+                        ),
+                        style: TextStyle(
+                          fontSize: 16.sp,
                         ),
                       ),
-                      enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.grey,
-                          width: 2,
-                        ),
-                      ),
-                    ),
-                    style: TextStyle(
-                      fontSize: 16.sp,
                     ),
                   ),
                 ),
                 // account note-end
+                SizedBox(
+                  height: 50.h,
+                ),
+                Container(
+                  height: 70.h,
+                  width: 380.w,
+                  padding: EdgeInsets.only(left: 30.w),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      elevation: 2,
+                      primary: Colors.white,
+                      enableFeedback: true,
+                    ),
+                    onPressed: () {
+                      FocusScope.of(context).unfocus();
+                      if (ref.read(addEditAccountFormNotifierProvider).isInit ==
+                          false) {
+                        ref
+                            .read(addEditAccountFormNotifierProvider.notifier)
+                            .updateAccount();
+                      } else {
+                        ref
+                            .read(addEditAccountFormNotifierProvider.notifier)
+                            .addAccount();
+                      }
+
+                      ref
+                          .read(accountListNotifierProvider.notifier)
+                          .getAccountList();
+                    },
+                    child: Text(
+                      "Submit",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -259,14 +309,37 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
 
   Widget formHeader() {
     return Container(
-      padding: EdgeInsets.only(top: 37.h),
-      alignment: Alignment.center,
-      child: Text(
-        "New Account Item",
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 25.sp,
-        ),
+      height: 150.h,
+      child: Column(
+        children: [
+          Container(
+            height: 75.h,
+            alignment: Alignment.centerLeft,
+            padding: EdgeInsets.only(top: 40.h),
+            child: RawMaterialButton(
+              onPressed: () => Navigator.of(context).pop(),
+              elevation: 2.0,
+              fillColor: Colors.white,
+              child: Icon(
+                Icons.arrow_back_rounded,
+                size: 30.w,
+              ),
+              shape: CircleBorder(),
+            ),
+          ),
+          Container(
+            height: 75.h,
+            padding: EdgeInsets.only(top: 37.h),
+            alignment: Alignment.center,
+            child: Text(
+              "New Account Item",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 25.sp,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

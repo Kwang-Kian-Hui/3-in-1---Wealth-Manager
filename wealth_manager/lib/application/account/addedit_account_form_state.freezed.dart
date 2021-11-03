@@ -22,6 +22,7 @@ class _$AddEditAccountFormStateTearOff {
       required bool isInit,
       required bool isSaving,
       required bool successful,
+      required bool hasConnection,
       required bool hasFirebaseFailure,
       required String? accountNameErrorMessage,
       required String? accountBalanceErrorMessage,
@@ -36,6 +37,7 @@ class _$AddEditAccountFormStateTearOff {
       isInit: isInit,
       isSaving: isSaving,
       successful: successful,
+      hasConnection: hasConnection,
       hasFirebaseFailure: hasFirebaseFailure,
       accountNameErrorMessage: accountNameErrorMessage,
       accountBalanceErrorMessage: accountBalanceErrorMessage,
@@ -58,6 +60,7 @@ mixin _$AddEditAccountFormState {
   bool get isInit => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   bool get successful => throw _privateConstructorUsedError;
+  bool get hasConnection => throw _privateConstructorUsedError;
   bool get hasFirebaseFailure => throw _privateConstructorUsedError;
   String? get accountNameErrorMessage => throw _privateConstructorUsedError;
   String? get accountBalanceErrorMessage => throw _privateConstructorUsedError;
@@ -83,6 +86,7 @@ abstract class $AddEditAccountFormStateCopyWith<$Res> {
       bool isInit,
       bool isSaving,
       bool successful,
+      bool hasConnection,
       bool hasFirebaseFailure,
       String? accountNameErrorMessage,
       String? accountBalanceErrorMessage,
@@ -109,6 +113,7 @@ class _$AddEditAccountFormStateCopyWithImpl<$Res>
     Object? isInit = freezed,
     Object? isSaving = freezed,
     Object? successful = freezed,
+    Object? hasConnection = freezed,
     Object? hasFirebaseFailure = freezed,
     Object? accountNameErrorMessage = freezed,
     Object? accountBalanceErrorMessage = freezed,
@@ -135,6 +140,10 @@ class _$AddEditAccountFormStateCopyWithImpl<$Res>
       successful: successful == freezed
           ? _value.successful
           : successful // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasConnection: hasConnection == freezed
+          ? _value.hasConnection
+          : hasConnection // ignore: cast_nullable_to_non_nullable
               as bool,
       hasFirebaseFailure: hasFirebaseFailure == freezed
           ? _value.hasFirebaseFailure
@@ -188,6 +197,7 @@ abstract class _$AddEditAccountFormStateCopyWith<$Res>
       bool isInit,
       bool isSaving,
       bool successful,
+      bool hasConnection,
       bool hasFirebaseFailure,
       String? accountNameErrorMessage,
       String? accountBalanceErrorMessage,
@@ -217,6 +227,7 @@ class __$AddEditAccountFormStateCopyWithImpl<$Res>
     Object? isInit = freezed,
     Object? isSaving = freezed,
     Object? successful = freezed,
+    Object? hasConnection = freezed,
     Object? hasFirebaseFailure = freezed,
     Object? accountNameErrorMessage = freezed,
     Object? accountBalanceErrorMessage = freezed,
@@ -243,6 +254,10 @@ class __$AddEditAccountFormStateCopyWithImpl<$Res>
       successful: successful == freezed
           ? _value.successful
           : successful // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasConnection: hasConnection == freezed
+          ? _value.hasConnection
+          : hasConnection // ignore: cast_nullable_to_non_nullable
               as bool,
       hasFirebaseFailure: hasFirebaseFailure == freezed
           ? _value.hasFirebaseFailure
@@ -292,6 +307,7 @@ class _$_AddEditAccountFormState extends _AddEditAccountFormState {
       required this.isInit,
       required this.isSaving,
       required this.successful,
+      required this.hasConnection,
       required this.hasFirebaseFailure,
       required this.accountNameErrorMessage,
       required this.accountBalanceErrorMessage,
@@ -311,6 +327,8 @@ class _$_AddEditAccountFormState extends _AddEditAccountFormState {
   final bool isSaving;
   @override
   final bool successful;
+  @override
+  final bool hasConnection;
   @override
   final bool hasFirebaseFailure;
   @override
@@ -332,7 +350,7 @@ class _$_AddEditAccountFormState extends _AddEditAccountFormState {
 
   @override
   String toString() {
-    return 'AddEditAccountFormState(showErrorMessage: $showErrorMessage, isInit: $isInit, isSaving: $isSaving, successful: $successful, hasFirebaseFailure: $hasFirebaseFailure, accountNameErrorMessage: $accountNameErrorMessage, accountBalanceErrorMessage: $accountBalanceErrorMessage, accountId: $accountId, accountName: $accountName, accountBalance: $accountBalance, accountBalanceString: $accountBalanceString, accountIcon: $accountIcon, accountNote: $accountNote)';
+    return 'AddEditAccountFormState(showErrorMessage: $showErrorMessage, isInit: $isInit, isSaving: $isSaving, successful: $successful, hasConnection: $hasConnection, hasFirebaseFailure: $hasFirebaseFailure, accountNameErrorMessage: $accountNameErrorMessage, accountBalanceErrorMessage: $accountBalanceErrorMessage, accountId: $accountId, accountName: $accountName, accountBalance: $accountBalance, accountBalanceString: $accountBalanceString, accountIcon: $accountIcon, accountNote: $accountNote)';
   }
 
   @override
@@ -347,6 +365,8 @@ class _$_AddEditAccountFormState extends _AddEditAccountFormState {
                 other.isSaving == isSaving) &&
             (identical(other.successful, successful) ||
                 other.successful == successful) &&
+            (identical(other.hasConnection, hasConnection) ||
+                other.hasConnection == hasConnection) &&
             (identical(other.hasFirebaseFailure, hasFirebaseFailure) ||
                 other.hasFirebaseFailure == hasFirebaseFailure) &&
             (identical(
@@ -377,6 +397,7 @@ class _$_AddEditAccountFormState extends _AddEditAccountFormState {
       isInit,
       isSaving,
       successful,
+      hasConnection,
       hasFirebaseFailure,
       accountNameErrorMessage,
       accountBalanceErrorMessage,
@@ -400,6 +421,7 @@ abstract class _AddEditAccountFormState extends AddEditAccountFormState {
       required bool isInit,
       required bool isSaving,
       required bool successful,
+      required bool hasConnection,
       required bool hasFirebaseFailure,
       required String? accountNameErrorMessage,
       required String? accountBalanceErrorMessage,
@@ -419,6 +441,8 @@ abstract class _AddEditAccountFormState extends AddEditAccountFormState {
   bool get isSaving;
   @override
   bool get successful;
+  @override
+  bool get hasConnection;
   @override
   bool get hasFirebaseFailure;
   @override

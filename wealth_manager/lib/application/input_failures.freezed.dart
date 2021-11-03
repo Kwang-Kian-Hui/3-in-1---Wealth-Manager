@@ -21,6 +21,10 @@ class _$InputFailuresTearOff {
     return const _Empty();
   }
 
+  _InvalidAmount invalidAmount() {
+    return const _InvalidAmount();
+  }
+
   _InvalidEmail invalidEmail() {
     return const _InvalidEmail();
   }
@@ -38,6 +42,7 @@ mixin _$InputFailures {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
+    required TResult Function() invalidAmount,
     required TResult Function() invalidEmail,
     required TResult Function() invalidPassword,
   }) =>
@@ -45,6 +50,7 @@ mixin _$InputFailures {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
+    TResult Function()? invalidAmount,
     TResult Function()? invalidEmail,
     TResult Function()? invalidPassword,
   }) =>
@@ -52,6 +58,7 @@ mixin _$InputFailures {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
+    TResult Function()? invalidAmount,
     TResult Function()? invalidEmail,
     TResult Function()? invalidPassword,
     required TResult orElse(),
@@ -60,6 +67,7 @@ mixin _$InputFailures {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Empty value) empty,
+    required TResult Function(_InvalidAmount value) invalidAmount,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_invalidPassword value) invalidPassword,
   }) =>
@@ -67,6 +75,7 @@ mixin _$InputFailures {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Empty value)? empty,
+    TResult Function(_InvalidAmount value)? invalidAmount,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_invalidPassword value)? invalidPassword,
   }) =>
@@ -74,6 +83,7 @@ mixin _$InputFailures {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Empty value)? empty,
+    TResult Function(_InvalidAmount value)? invalidAmount,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_invalidPassword value)? invalidPassword,
     required TResult orElse(),
@@ -137,6 +147,7 @@ class _$_Empty extends _Empty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
+    required TResult Function() invalidAmount,
     required TResult Function() invalidEmail,
     required TResult Function() invalidPassword,
   }) {
@@ -147,6 +158,7 @@ class _$_Empty extends _Empty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
+    TResult Function()? invalidAmount,
     TResult Function()? invalidEmail,
     TResult Function()? invalidPassword,
   }) {
@@ -157,6 +169,7 @@ class _$_Empty extends _Empty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
+    TResult Function()? invalidAmount,
     TResult Function()? invalidEmail,
     TResult Function()? invalidPassword,
     required TResult orElse(),
@@ -171,6 +184,7 @@ class _$_Empty extends _Empty {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Empty value) empty,
+    required TResult Function(_InvalidAmount value) invalidAmount,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_invalidPassword value) invalidPassword,
   }) {
@@ -181,6 +195,7 @@ class _$_Empty extends _Empty {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Empty value)? empty,
+    TResult Function(_InvalidAmount value)? invalidAmount,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_invalidPassword value)? invalidPassword,
   }) {
@@ -191,6 +206,7 @@ class _$_Empty extends _Empty {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Empty value)? empty,
+    TResult Function(_InvalidAmount value)? invalidAmount,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_invalidPassword value)? invalidPassword,
     required TResult orElse(),
@@ -205,6 +221,124 @@ class _$_Empty extends _Empty {
 abstract class _Empty extends InputFailures {
   const factory _Empty() = _$_Empty;
   const _Empty._() : super._();
+}
+
+/// @nodoc
+abstract class _$InvalidAmountCopyWith<$Res> {
+  factory _$InvalidAmountCopyWith(
+          _InvalidAmount value, $Res Function(_InvalidAmount) then) =
+      __$InvalidAmountCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$InvalidAmountCopyWithImpl<$Res>
+    extends _$InputFailuresCopyWithImpl<$Res>
+    implements _$InvalidAmountCopyWith<$Res> {
+  __$InvalidAmountCopyWithImpl(
+      _InvalidAmount _value, $Res Function(_InvalidAmount) _then)
+      : super(_value, (v) => _then(v as _InvalidAmount));
+
+  @override
+  _InvalidAmount get _value => super._value as _InvalidAmount;
+}
+
+/// @nodoc
+
+class _$_InvalidAmount extends _InvalidAmount {
+  const _$_InvalidAmount() : super._();
+
+  @override
+  String toString() {
+    return 'InputFailures.invalidAmount()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _InvalidAmount);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function() invalidAmount,
+    required TResult Function() invalidEmail,
+    required TResult Function() invalidPassword,
+  }) {
+    return invalidAmount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? invalidAmount,
+    TResult Function()? invalidEmail,
+    TResult Function()? invalidPassword,
+  }) {
+    return invalidAmount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? invalidAmount,
+    TResult Function()? invalidEmail,
+    TResult Function()? invalidPassword,
+    required TResult orElse(),
+  }) {
+    if (invalidAmount != null) {
+      return invalidAmount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty value) empty,
+    required TResult Function(_InvalidAmount value) invalidAmount,
+    required TResult Function(_InvalidEmail value) invalidEmail,
+    required TResult Function(_invalidPassword value) invalidPassword,
+  }) {
+    return invalidAmount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Empty value)? empty,
+    TResult Function(_InvalidAmount value)? invalidAmount,
+    TResult Function(_InvalidEmail value)? invalidEmail,
+    TResult Function(_invalidPassword value)? invalidPassword,
+  }) {
+    return invalidAmount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty value)? empty,
+    TResult Function(_InvalidAmount value)? invalidAmount,
+    TResult Function(_InvalidEmail value)? invalidEmail,
+    TResult Function(_invalidPassword value)? invalidPassword,
+    required TResult orElse(),
+  }) {
+    if (invalidAmount != null) {
+      return invalidAmount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidAmount extends InputFailures {
+  const factory _InvalidAmount() = _$_InvalidAmount;
+  const _InvalidAmount._() : super._();
 }
 
 /// @nodoc
@@ -249,6 +383,7 @@ class _$_InvalidEmail extends _InvalidEmail {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
+    required TResult Function() invalidAmount,
     required TResult Function() invalidEmail,
     required TResult Function() invalidPassword,
   }) {
@@ -259,6 +394,7 @@ class _$_InvalidEmail extends _InvalidEmail {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
+    TResult Function()? invalidAmount,
     TResult Function()? invalidEmail,
     TResult Function()? invalidPassword,
   }) {
@@ -269,6 +405,7 @@ class _$_InvalidEmail extends _InvalidEmail {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
+    TResult Function()? invalidAmount,
     TResult Function()? invalidEmail,
     TResult Function()? invalidPassword,
     required TResult orElse(),
@@ -283,6 +420,7 @@ class _$_InvalidEmail extends _InvalidEmail {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Empty value) empty,
+    required TResult Function(_InvalidAmount value) invalidAmount,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_invalidPassword value) invalidPassword,
   }) {
@@ -293,6 +431,7 @@ class _$_InvalidEmail extends _InvalidEmail {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Empty value)? empty,
+    TResult Function(_InvalidAmount value)? invalidAmount,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_invalidPassword value)? invalidPassword,
   }) {
@@ -303,6 +442,7 @@ class _$_InvalidEmail extends _InvalidEmail {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Empty value)? empty,
+    TResult Function(_InvalidAmount value)? invalidAmount,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_invalidPassword value)? invalidPassword,
     required TResult orElse(),
@@ -361,6 +501,7 @@ class _$_invalidPassword extends _invalidPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
+    required TResult Function() invalidAmount,
     required TResult Function() invalidEmail,
     required TResult Function() invalidPassword,
   }) {
@@ -371,6 +512,7 @@ class _$_invalidPassword extends _invalidPassword {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? empty,
+    TResult Function()? invalidAmount,
     TResult Function()? invalidEmail,
     TResult Function()? invalidPassword,
   }) {
@@ -381,6 +523,7 @@ class _$_invalidPassword extends _invalidPassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
+    TResult Function()? invalidAmount,
     TResult Function()? invalidEmail,
     TResult Function()? invalidPassword,
     required TResult orElse(),
@@ -395,6 +538,7 @@ class _$_invalidPassword extends _invalidPassword {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Empty value) empty,
+    required TResult Function(_InvalidAmount value) invalidAmount,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_invalidPassword value) invalidPassword,
   }) {
@@ -405,6 +549,7 @@ class _$_invalidPassword extends _invalidPassword {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Empty value)? empty,
+    TResult Function(_InvalidAmount value)? invalidAmount,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_invalidPassword value)? invalidPassword,
   }) {
@@ -415,6 +560,7 @@ class _$_invalidPassword extends _invalidPassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Empty value)? empty,
+    TResult Function(_InvalidAmount value)? invalidAmount,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_invalidPassword value)? invalidPassword,
     required TResult orElse(),

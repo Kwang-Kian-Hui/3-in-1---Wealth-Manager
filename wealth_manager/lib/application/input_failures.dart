@@ -6,10 +6,13 @@ part 'input_failures.freezed.dart';
 class InputFailures with _$InputFailures {
   const InputFailures._();
   const factory InputFailures.empty() = _Empty;
+  const factory InputFailures.invalidAmount() = _InvalidAmount;
   const factory InputFailures.invalidEmail() = _InvalidEmail;
   const factory InputFailures.invalidPassword() = _invalidPassword;
 }
 
+final emptyInputMessage = "Please enter a value";
+final invalidAmountMessage = "Please enter a valid amount";
 final invalidEmailMessage = "Please enter a valid email";
 final emailAlreadyInUseMessage = "Please enter a new email";
 final userNotFoundMessage = "The entered email is not registered";

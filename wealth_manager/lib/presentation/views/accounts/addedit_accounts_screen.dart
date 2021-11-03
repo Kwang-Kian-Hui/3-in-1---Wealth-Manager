@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/application/account/addedit_account_form_state.dart';
 import 'package:wealth_manager/infrastructure/models/account.dart';
 import 'package:wealth_manager/presentation/views/accounts/addedit_account_form.dart';
+import 'package:wealth_manager/presentation/views/home_screen.dart';
 import 'package:wealth_manager/presentation/widgets/progress_indicator_overlay.dart';
 import 'package:wealth_manager/shared/providers.dart';
 
@@ -34,7 +35,7 @@ class _AddEditAccountScreenState extends ConsumerState<AddEditAccountScreen> {
     ref.listen<AddEditAccountFormState>(addEditAccountFormNotifierProvider,
         (state) {
       if (state.successful) {
-        Navigator.of(context).popUntil((route) => route.isFirst);
+        Navigator.popUntil(context, ModalRoute.withName(HomeScreen.routeName));
       }
 
       if (state.hasFirebaseFailure) {
