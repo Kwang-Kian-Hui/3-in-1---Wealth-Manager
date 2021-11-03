@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/application/account/account_list_notifier.dart';
 import 'package:wealth_manager/application/account/account_list_state.dart';
+import 'package:wealth_manager/application/account/addedit_account_form_notifier.dart';
+import 'package:wealth_manager/application/account/addedit_account_form_state.dart';
 import 'package:wealth_manager/application/auth/auth_notifier.dart';
 import 'package:wealth_manager/application/auth/sign_in_notifier.dart';
 import 'package:wealth_manager/application/auth/sign_up_notifier.dart';
@@ -17,7 +19,6 @@ import 'package:wealth_manager/infrastructure/models/auth/sign_up_state.dart';
 
 final firestoreProvider = Provider((ref) => FirebaseFirestore.instance);
 final authProvider = Provider((ref) => FirebaseAuth.instance);
-
 
 // auth rs, repo and notifiers
 final authServiceProvider =
@@ -49,4 +50,12 @@ final accountListNotifierProvider =
     StateNotifierProvider.autoDispose<AccountListNotifier, AccountListState>(
         (ref) => AccountListNotifier(ref.watch(accountRepositoryProvider)));
 
-final currentAccountItem = Provider.autoDispose<Account>((ref) => throw UnimplementedError());
+final addEditAccountFormNotifierProvider = StateNotifierProvider.autoDispose<
+    AddEditAccountFormNotifier, AddEditAccountFormState>(
+  (ref) => AddEditAccountFormNotifier(
+    ref.watch(accountRepositoryProvider),
+  ),
+);
+
+final currentAccountItem =
+    Provider.autoDispose<Account>((ref) => throw UnimplementedError());

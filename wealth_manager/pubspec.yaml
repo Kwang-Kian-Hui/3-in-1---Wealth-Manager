@@ -33,6 +33,7 @@ dependencies:
   freezed_annotation: ^0.15.0 # state management
   google_sign_in: ^5.1.1
   json_annotation: ^4.3.0 # for data transfer object files
+  keyboard_actions: ^3.4.4 # custom keyboard for icon keyboard
   
 
   # The following adds the Cupertino Icons font to your application.

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/presentation/views/accounts/accounts_screen.dart';
+import 'package:wealth_manager/presentation/views/accounts/addedit_accounts_screen.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_in_screen.dart';
 import 'package:wealth_manager/presentation/views/expenses_screen.dart';
 import 'package:wealth_manager/presentation/views/insurance_screen.dart';
@@ -43,6 +44,25 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         currentIndex: _selectedPageIndex,
       ),
       body: _pages[_selectedPageIndex]["page"],
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: floatingActionButton(),
     );
   }
+  
+  FloatingActionButton? floatingActionButton (){
+    return _selectedPageIndex == 2
+          ? FloatingActionButton(
+              child: Icon(Icons.add, color: Colors.white),
+              onPressed: () {
+                Navigator.of(context)
+                    .pushNamed(AddEditAccountScreen.routeName);
+              },
+              backgroundColor: Colors.grey,
+            )
+          : null;
+  }
 }
+
+
+// floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      

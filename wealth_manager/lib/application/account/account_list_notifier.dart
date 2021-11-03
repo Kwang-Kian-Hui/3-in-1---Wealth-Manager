@@ -16,7 +16,6 @@ class AccountListNotifier extends StateNotifier<AccountListState> {
     getAccountResult.fold(
       (failure) => state = AccountListState.failure(failure),
       (accountList) {
-        print(accountList.length);
         state = AccountListState.loaded(accountList);
       },
     );
@@ -27,7 +26,6 @@ class AccountListNotifier extends StateNotifier<AccountListState> {
     for (var acc in accountList) {
       netWorth += acc.accBalance;
     }
-    print("networth is : " + netWorth.toStringAsFixed(2));
     return netWorth;
   }
 }

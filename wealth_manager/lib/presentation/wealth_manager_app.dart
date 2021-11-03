@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wealth_manager/presentation/views/accounts/accounts_screen.dart';
+import 'package:wealth_manager/presentation/views/accounts/addedit_accounts_screen.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_in_screen.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_up_screen.dart';
 import 'package:wealth_manager/presentation/views/expenses_screen.dart';
@@ -40,6 +41,9 @@ class _WealthManagerAppState extends ConsumerState<WealthManagerApp> {
           AccountsScreen.routeName: (context) => AccountsScreen(),
           ExpensesScreen.routeName: (context) => ExpensesScreen(),
           SettingsScreen.routeName: (context) => SettingsScreen(),
+
+          AddEditAccountScreen.routeName: (context) => AddEditAccountScreen(),
+          
           
 
 

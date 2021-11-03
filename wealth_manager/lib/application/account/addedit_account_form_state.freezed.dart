@@ -23,6 +23,8 @@ class _$AddEditAccountFormStateTearOff {
       required bool isSaving,
       required bool successful,
       required bool hasFirebaseFailure,
+      required String? accountNameErrorMessage,
+      required String? accountBalanceErrorMessage,
       required String? accountId,
       required String accountName,
       required double accountBalance,
@@ -35,6 +37,8 @@ class _$AddEditAccountFormStateTearOff {
       isSaving: isSaving,
       successful: successful,
       hasFirebaseFailure: hasFirebaseFailure,
+      accountNameErrorMessage: accountNameErrorMessage,
+      accountBalanceErrorMessage: accountBalanceErrorMessage,
       accountId: accountId,
       accountName: accountName,
       accountBalance: accountBalance,
@@ -54,9 +58,9 @@ mixin _$AddEditAccountFormState {
   bool get isInit => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   bool get successful => throw _privateConstructorUsedError;
-  bool get hasFirebaseFailure =>
-      throw _privateConstructorUsedError; // required String? accountNameErrorMessage,
-// required String? destinationMarkErrorMessage,
+  bool get hasFirebaseFailure => throw _privateConstructorUsedError;
+  String? get accountNameErrorMessage => throw _privateConstructorUsedError;
+  String? get accountBalanceErrorMessage => throw _privateConstructorUsedError;
   String? get accountId => throw _privateConstructorUsedError;
   String get accountName => throw _privateConstructorUsedError;
   double get accountBalance => throw _privateConstructorUsedError;
@@ -80,6 +84,8 @@ abstract class $AddEditAccountFormStateCopyWith<$Res> {
       bool isSaving,
       bool successful,
       bool hasFirebaseFailure,
+      String? accountNameErrorMessage,
+      String? accountBalanceErrorMessage,
       String? accountId,
       String accountName,
       double accountBalance,
@@ -104,6 +110,8 @@ class _$AddEditAccountFormStateCopyWithImpl<$Res>
     Object? isSaving = freezed,
     Object? successful = freezed,
     Object? hasFirebaseFailure = freezed,
+    Object? accountNameErrorMessage = freezed,
+    Object? accountBalanceErrorMessage = freezed,
     Object? accountId = freezed,
     Object? accountName = freezed,
     Object? accountBalance = freezed,
@@ -132,6 +140,14 @@ class _$AddEditAccountFormStateCopyWithImpl<$Res>
           ? _value.hasFirebaseFailure
           : hasFirebaseFailure // ignore: cast_nullable_to_non_nullable
               as bool,
+      accountNameErrorMessage: accountNameErrorMessage == freezed
+          ? _value.accountNameErrorMessage
+          : accountNameErrorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      accountBalanceErrorMessage: accountBalanceErrorMessage == freezed
+          ? _value.accountBalanceErrorMessage
+          : accountBalanceErrorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
       accountId: accountId == freezed
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
@@ -173,6 +189,8 @@ abstract class _$AddEditAccountFormStateCopyWith<$Res>
       bool isSaving,
       bool successful,
       bool hasFirebaseFailure,
+      String? accountNameErrorMessage,
+      String? accountBalanceErrorMessage,
       String? accountId,
       String accountName,
       double accountBalance,
@@ -200,6 +218,8 @@ class __$AddEditAccountFormStateCopyWithImpl<$Res>
     Object? isSaving = freezed,
     Object? successful = freezed,
     Object? hasFirebaseFailure = freezed,
+    Object? accountNameErrorMessage = freezed,
+    Object? accountBalanceErrorMessage = freezed,
     Object? accountId = freezed,
     Object? accountName = freezed,
     Object? accountBalance = freezed,
@@ -228,6 +248,14 @@ class __$AddEditAccountFormStateCopyWithImpl<$Res>
           ? _value.hasFirebaseFailure
           : hasFirebaseFailure // ignore: cast_nullable_to_non_nullable
               as bool,
+      accountNameErrorMessage: accountNameErrorMessage == freezed
+          ? _value.accountNameErrorMessage
+          : accountNameErrorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      accountBalanceErrorMessage: accountBalanceErrorMessage == freezed
+          ? _value.accountBalanceErrorMessage
+          : accountBalanceErrorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
       accountId: accountId == freezed
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
@@ -265,6 +293,8 @@ class _$_AddEditAccountFormState extends _AddEditAccountFormState {
       required this.isSaving,
       required this.successful,
       required this.hasFirebaseFailure,
+      required this.accountNameErrorMessage,
+      required this.accountBalanceErrorMessage,
       required this.accountId,
       required this.accountName,
       required this.accountBalance,
@@ -283,8 +313,11 @@ class _$_AddEditAccountFormState extends _AddEditAccountFormState {
   final bool successful;
   @override
   final bool hasFirebaseFailure;
-  @override // required String? accountNameErrorMessage,
-// required String? destinationMarkErrorMessage,
+  @override
+  final String? accountNameErrorMessage;
+  @override
+  final String? accountBalanceErrorMessage;
+  @override
   final String? accountId;
   @override
   final String accountName;
@@ -299,7 +332,7 @@ class _$_AddEditAccountFormState extends _AddEditAccountFormState {
 
   @override
   String toString() {
-    return 'AddEditAccountFormState(showErrorMessage: $showErrorMessage, isInit: $isInit, isSaving: $isSaving, successful: $successful, hasFirebaseFailure: $hasFirebaseFailure, accountId: $accountId, accountName: $accountName, accountBalance: $accountBalance, accountBalanceString: $accountBalanceString, accountIcon: $accountIcon, accountNote: $accountNote)';
+    return 'AddEditAccountFormState(showErrorMessage: $showErrorMessage, isInit: $isInit, isSaving: $isSaving, successful: $successful, hasFirebaseFailure: $hasFirebaseFailure, accountNameErrorMessage: $accountNameErrorMessage, accountBalanceErrorMessage: $accountBalanceErrorMessage, accountId: $accountId, accountName: $accountName, accountBalance: $accountBalance, accountBalanceString: $accountBalanceString, accountIcon: $accountIcon, accountNote: $accountNote)';
   }
 
   @override
@@ -316,6 +349,13 @@ class _$_AddEditAccountFormState extends _AddEditAccountFormState {
                 other.successful == successful) &&
             (identical(other.hasFirebaseFailure, hasFirebaseFailure) ||
                 other.hasFirebaseFailure == hasFirebaseFailure) &&
+            (identical(
+                    other.accountNameErrorMessage, accountNameErrorMessage) ||
+                other.accountNameErrorMessage == accountNameErrorMessage) &&
+            (identical(other.accountBalanceErrorMessage,
+                    accountBalanceErrorMessage) ||
+                other.accountBalanceErrorMessage ==
+                    accountBalanceErrorMessage) &&
             (identical(other.accountId, accountId) ||
                 other.accountId == accountId) &&
             (identical(other.accountName, accountName) ||
@@ -338,6 +378,8 @@ class _$_AddEditAccountFormState extends _AddEditAccountFormState {
       isSaving,
       successful,
       hasFirebaseFailure,
+      accountNameErrorMessage,
+      accountBalanceErrorMessage,
       accountId,
       accountName,
       accountBalance,
@@ -359,6 +401,8 @@ abstract class _AddEditAccountFormState extends AddEditAccountFormState {
       required bool isSaving,
       required bool successful,
       required bool hasFirebaseFailure,
+      required String? accountNameErrorMessage,
+      required String? accountBalanceErrorMessage,
       required String? accountId,
       required String accountName,
       required double accountBalance,
@@ -377,8 +421,11 @@ abstract class _AddEditAccountFormState extends AddEditAccountFormState {
   bool get successful;
   @override
   bool get hasFirebaseFailure;
-  @override // required String? accountNameErrorMessage,
-// required String? destinationMarkErrorMessage,
+  @override
+  String? get accountNameErrorMessage;
+  @override
+  String? get accountBalanceErrorMessage;
+  @override
   String? get accountId;
   @override
   String get accountName;

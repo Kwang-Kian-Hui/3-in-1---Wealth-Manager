@@ -28,14 +28,17 @@ class _AccountsScreenState extends ConsumerState<AccountsScreen> {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: state.map(
-        initial: (_) => Container(),
-        loading: (_) => Padding(
+        initial: (_) => Padding(
           padding: EdgeInsets.only(top: 37.h, left: 30.w, right: 30.w),
           child: Column(
             children: [
+              titleDisplay(),
               netWorthDisplay(0.0),
             ],
           ),
+        ),
+        loading: (_) => const Center(
+          child: CircularProgressIndicator(),
         ),
         noConnection: (_) => Container(),
         failure: (failure) => Container(),
@@ -43,6 +46,7 @@ class _AccountsScreenState extends ConsumerState<AccountsScreen> {
           padding: EdgeInsets.only(top: 37.h, left: 30.w, right: 30.w),
           child: Column(
             children: [
+              titleDisplay(),
               netWorthDisplay(
                 ref
                     .read(accountListNotifierProvider.notifier)
@@ -87,6 +91,22 @@ Widget netWorthDisplay(double netWorth) {
             child: Text("net worth amount"),
           ),
         ],
+      ),
+    ),
+  );
+}
+
+Widget titleDisplay() {
+  return Container(
+    height: 39.h,
+    width: 350.w,
+    alignment: Alignment.topLeft,
+    child: Text(
+      "Accounts",
+      style: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: 30.sp,
       ),
     ),
   );
