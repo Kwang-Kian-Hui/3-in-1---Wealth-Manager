@@ -50,7 +50,7 @@ class AccountRemoteService {
       accNote: newAcc.accNote,
     );
 
-    print("remoteservice try to add new acc");
+    // print("remoteservice try to add new acc");
 
     return await _firebaseFirestore
         .collection('users')
@@ -58,6 +58,28 @@ class AccountRemoteService {
         .collection('accounts')
         .doc(newAcc.accId)
         .set(newAcc.toJson());
+  }
+
+  Future<void> updateAccount(AccountDTO newAcc) async {
+    String uid = getUserId();
+
+    return await _firebaseFirestore
+        .collection('users')
+        .doc(uid)
+        .collection('accounts')
+        .doc(newAcc.accId)
+        .set(newAcc.toJson());
+  }
+
+  Future<void> deleteAccount(String accountId) async {
+    String uid = getUserId();
+
+    return await _firebaseFirestore
+        .collection('users')
+        .doc(uid)
+        .collection('accounts')
+        .doc(accountId)
+        .delete();
   }
 
   // Future<void> addNewTransaction(String uid, ) async {

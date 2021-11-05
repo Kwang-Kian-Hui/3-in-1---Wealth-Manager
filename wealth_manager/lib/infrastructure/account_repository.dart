@@ -49,4 +49,16 @@ class AccountRepository {
       return left(const FirebaseFailures.unknown());
     }
   }
+
+  Future<Either<FirebaseFailures, Unit>> deleteAccount(String accountId) async {
+    try {
+      await _accountRemoteService.deleteAccount(accountId);
+      return right(unit);
+    } on FirebaseException catch (error) {
+      if (error.code == 'cancelled') {
+        return left(const FirebaseFailures.cancelledOperation());
+      }
+      return left(const FirebaseFailures.unknown());
+    }
+  }
 }

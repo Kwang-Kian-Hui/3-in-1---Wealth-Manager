@@ -28,4 +28,14 @@ class AccountListNotifier extends StateNotifier<AccountListState> {
     }
     return netWorth;
   }
+
+  void deleteAccount(String accountId) async {
+    final deleteResult =
+            await _accountRepository.deleteAccount(accountId);
+
+    deleteResult.fold(
+      (f) => state = AccountListState.failure(f),
+      (r) => () {},
+    );
+  }
 }

@@ -37,7 +37,6 @@ class _AddEditAccountScreenState extends ConsumerState<AddEditAccountScreen> {
       if (state.successful) {
         Navigator.popUntil(context, ModalRoute.withName(HomeScreen.routeName));
       }
-
       if (state.hasFirebaseFailure) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content:
