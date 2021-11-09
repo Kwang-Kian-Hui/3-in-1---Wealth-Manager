@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/presentation/views/accounts/accounts_screen.dart';
 import 'package:wealth_manager/presentation/views/accounts/addedit_accounts_screen.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_in_screen.dart';
-import 'package:wealth_manager/presentation/views/expenses/tx_screen.dart';
+import 'package:wealth_manager/presentation/views/transactions/tx_screen.dart';
 import 'package:wealth_manager/presentation/views/insurance_screen.dart';
 import 'package:wealth_manager/presentation/views/investment_screen.dart';
 import 'package:wealth_manager/presentation/views/settings_screen.dart';

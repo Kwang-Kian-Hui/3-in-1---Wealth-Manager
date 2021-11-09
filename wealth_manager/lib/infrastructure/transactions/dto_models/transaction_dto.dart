@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:wealth_manager/infrastructure/expenses/models/transaction.dart';
+import 'package:wealth_manager/infrastructure/transactions/models/transaction.dart';
 
 part 'transaction_dto.freezed.dart';
 part 'transaction_dto.g.dart';
