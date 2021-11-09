@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/application/account/addedit_account_form_state.dart';
 import 'package:wealth_manager/application/account/value_validator.dart';
 import 'package:wealth_manager/application/input_failures.dart';
-import 'package:wealth_manager/infrastructure/account_repository.dart';
-import 'package:wealth_manager/infrastructure/models/account.dart';
+import 'package:wealth_manager/infrastructure/accounts/account_repository.dart';
+import 'package:wealth_manager/infrastructure/accounts/models/account.dart';
 
 class AddEditAccountFormNotifier
     extends StateNotifier<AddEditAccountFormState> {
@@ -30,7 +30,7 @@ class AddEditAccountFormNotifier
 
   void _validateInputs() {
     var stateCopy = state.copyWith(showErrorMessage: true);
-    
+
     final accNameValidate = validateNotEmpty(state.accountName);
     accNameValidate.fold(
       (inputFailure) => inputFailure.maybeWhen(
@@ -43,8 +43,9 @@ class AddEditAccountFormNotifier
       ),
       (r) => stateCopy = stateCopy.copyWith(accountNameErrorMessage: null),
     );
-    
-    final accBalanceValidate = validateAmountValue(stateCopy.accountBalanceString);
+
+    final accBalanceValidate =
+        validateAmountValue(stateCopy.accountBalanceString);
     accBalanceValidate.fold(
       (inputFailure) => inputFailure.maybeWhen(
         empty: () {
@@ -54,8 +55,7 @@ class AddEditAccountFormNotifier
         },
         invalidAmount: () {
           stateCopy = stateCopy.copyWith(
-            accountBalanceErrorMessage:
-                invalidAmountMessage,
+            accountBalanceErrorMessage: invalidAmountMessage,
           );
         },
         orElse: () {},
@@ -107,7 +107,7 @@ class AddEditAccountFormNotifier
 
         failureOrSuccess.fold((failure) {
           failure.maybeWhen(
-            noConnection: (){
+            noConnection: () {
               state = state.copyWith(
                 isSaving: false,
                 hasConnection: false,
@@ -124,7 +124,7 @@ class AddEditAccountFormNotifier
           print("successful");
           state = state.copyWith(
             isSaving: false,
-            successful: true,
+            insertOrUpdateSuccessful: true,
           );
         });
       }
@@ -158,7 +158,7 @@ class AddEditAccountFormNotifier
 
         failureOrSuccess.fold((failure) {
           failure.maybeWhen(
-            noConnection: (){
+            noConnection: () {
               state = state.copyWith(
                 isSaving: false,
                 hasConnection: false,
@@ -174,10 +174,41 @@ class AddEditAccountFormNotifier
         }, (_) {
           state = state.copyWith(
             isSaving: false,
-            successful: true,
+            insertOrUpdateSuccessful: true,
           );
         });
       }
     }
+  }
+
+  Future<void> deleteAccount(String accountId) async {
+    final deleteResult = await _accountRepository.deleteAccount(accountId);
+
+    deleteResult.fold((failure) {
+      failure.maybeWhen(
+        noConnection: () {
+          state = state.copyWith(
+            isSaving: false,
+            hasConnection: false,
+          );
+        },
+        orElse: () {
+          state = state.copyWith(
+            isSaving: false,
+            hasFirebaseFailure: true,
+          );
+        },
+      );
+    }, (_) {
+      state = state.copyWith(
+        isSaving: false,
+        deleteSuccessful: true,
+      );
+    });
+  }
+
+  @override
+  dispose() {
+    super.dispose();
   }
 }

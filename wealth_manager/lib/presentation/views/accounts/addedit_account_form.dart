@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
-import 'package:wealth_manager/infrastructure/models/list_of_icons.dart';
+import 'package:wealth_manager/infrastructure/accounts/models/list_of_icons.dart';
 import 'package:wealth_manager/presentation/widgets/custom_keyboards.dart';
 import 'package:wealth_manager/shared/providers.dart';
 
@@ -16,12 +16,21 @@ class AddEditAccountForm extends ConsumerStatefulWidget {
 }
 
 class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
+  
   ValueNotifier<IconData> accIconNotifier =
       ValueNotifier<IconData>(ListOfIcons.iconList[5]);
   final accNameFocusNode = FocusNode();
   final accBalanceStringFocusNode = FocusNode();
   final accIconFocusNode = FocusNode();
   final accNoteFocusNode = FocusNode();
+  var isInit = true;
+
+  @override
+  void initState() {
+    isInit = ref.read(addEditAccountFormNotifierProvider).isInit == true;
+    accIconNotifier = ValueNotifier<IconData>(ListOfIcons.iconList[ref.read(addEditAccountFormNotifierProvider).accountIcon]);
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -29,6 +38,7 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
     accBalanceStringFocusNode.dispose();
     accIconFocusNode.dispose();
     accNoteFocusNode.dispose();
+    accIconNotifier.dispose();
     super.dispose();
   }
 
@@ -57,8 +67,6 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
 
   @override
   Widget build(BuildContext context) {
-    // final image = ref.watch(
-    //     addEditAccountFormNotifierProvider.select((state) => state.imageFile));
     return Form(
       child: KeyboardActions(
         config: _buildConfig(context),
@@ -67,7 +75,6 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              // crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 formHeader(),
                 // acc icon-start
@@ -139,11 +146,9 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
                         initialValue: ref
                             .read(addEditAccountFormNotifierProvider)
                             .accountName,
-                        onChanged: (newAccName) {
-                          ref
-                              .read(addEditAccountFormNotifierProvider.notifier)
-                              .accountNameChanged(newAccName);
-                        },
+                        onChanged: ref
+                            .read(addEditAccountFormNotifierProvider.notifier)
+                            .accountNameChanged,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           labelText: ref.watch(
@@ -241,7 +246,7 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
                       child: TextFormField(
                         initialValue: ref
                             .read(addEditAccountFormNotifierProvider)
-                            .accountBalanceString,
+                            .accountNote,
                         onChanged: (newAccNote) {
                           ref
                               .read(addEditAccountFormNotifierProvider.notifier)
@@ -262,43 +267,130 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
                 SizedBox(
                   height: 50.h,
                 ),
-                Container(
-                  height: 70.h,
-                  width: 380.w,
-                  padding: EdgeInsets.only(left: 30.w),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      elevation: 2,
-                      primary: Colors.white,
-                      enableFeedback: true,
-                    ),
-                    onPressed: () {
-                      FocusScope.of(context).unfocus();
-                      if (ref.read(addEditAccountFormNotifierProvider).isInit ==
-                          false) {
-                        ref
-                            .read(addEditAccountFormNotifierProvider.notifier)
-                            .updateAccount();
-                      } else {
-                        ref
-                            .read(addEditAccountFormNotifierProvider.notifier)
-                            .addAccount();
-                      }
+                !isInit
+                    ? Container(
+                        // edit form
+                        height: 70.h,
+                        width: 411.w,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(),
+                            ),
+                            Container(
+                              height: 70.h,
+                              width: 150.w,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 2,
+                                  primary: Colors.white,
+                                  enableFeedback: true,
+                                ),
+                                onPressed: () {
+                                  FocusScope.of(context).unfocus();
+                                  ref
+                                      .read(addEditAccountFormNotifierProvider
+                                          .notifier)
+                                      .updateAccount();
 
-                      ref
-                          .read(accountListNotifierProvider.notifier)
-                          .getAccountList();
-                    },
-                    child: Text(
-                      "Submit",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.sp,
+                                  ref
+                                      .read(
+                                          accountListNotifierProvider.notifier)
+                                      .getAccountList();
+                                },
+                                child: Text(
+                                  "Update",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.sp,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(),
+                            ),
+                            Container(
+                              height: 70.h,
+                              width: 150.w,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 2,
+                                  primary: Colors.white,
+                                  enableFeedback: true,
+                                ),
+                                onPressed: () {
+                                  FocusScope.of(context).unfocus();
+                                  final accountId = ref
+                                      .read(addEditAccountFormNotifierProvider)
+                                      .accountId;
+
+                                  ref
+                                      .read(addEditAccountFormNotifierProvider
+                                          .notifier)
+                                      .deleteAccount(accountId!);
+
+                                  ref
+                                      .read(
+                                          accountListNotifierProvider.notifier)
+                                      .getAccountList();
+                                },
+                                child: Text(
+                                  "Delete",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.sp,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Container(
+                        // add form
+                        height: 70.h,
+                        width: 380.w,
+                        padding: EdgeInsets.only(left: 30.w),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            elevation: 2,
+                            primary: Colors.white,
+                            enableFeedback: true,
+                          ),
+                          onPressed: () {
+                            FocusScope.of(context).unfocus();
+                            if (isInit) {
+                              ref
+                                  .read(addEditAccountFormNotifierProvider
+                                      .notifier)
+                                  .updateAccount();
+                            } else {
+                              ref
+                                  .read(addEditAccountFormNotifierProvider
+                                      .notifier)
+                                  .addAccount();
+                            }
+
+                            ref
+                                .read(accountListNotifierProvider.notifier)
+                                .getAccountList();
+                          },
+                          child: Text(
+                            "Create Account",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.sp,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
@@ -332,7 +424,7 @@ class _AddEditAccountFormState extends ConsumerState<AddEditAccountForm> {
             padding: EdgeInsets.only(top: 37.h),
             alignment: Alignment.center,
             child: Text(
-              "New Account Item",
+              isInit ? "New Account Item" : "Edit Account Item",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 25.sp,

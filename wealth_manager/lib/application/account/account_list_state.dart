@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:wealth_manager/infrastructure/models/account.dart';
-import 'package:wealth_manager/infrastructure/models/firebase_failures.dart';
+import 'package:wealth_manager/infrastructure/accounts/models/account.dart';
+import 'package:wealth_manager/infrastructure/core_models/firebase_failures.dart';
 
 part 'account_list_state.freezed.dart';
 

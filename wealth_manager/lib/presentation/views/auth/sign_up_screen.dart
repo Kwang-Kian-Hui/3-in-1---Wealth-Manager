@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wealth_manager/infrastructure/models/auth/sign_up_state.dart';
+import 'package:wealth_manager/infrastructure/core_models/auth/sign_up_state.dart';
 import 'package:wealth_manager/presentation/views/forms/sign_up_form.dart';
 import 'package:wealth_manager/presentation/views/home_screen.dart';
 import 'package:wealth_manager/presentation/widgets/progress_indicator_overlay.dart';

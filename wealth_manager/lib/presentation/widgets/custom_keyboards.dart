@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:intl/intl.dart';
-import 'package:wealth_manager/infrastructure/models/list_of_icons.dart';
+import 'package:wealth_manager/infrastructure/accounts/models/list_of_icons.dart';
 
 class IconDataKeyboard extends StatelessWidget
     with KeyboardCustomPanelMixin<IconData>

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:wealth_manager/infrastructure/dto_models/account_dto.dart';
+import 'package:wealth_manager/infrastructure/accounts/dto_models/account_dto.dart';
 
 class AccountRemoteService {
   final FirebaseAuth _firebaseAuth;

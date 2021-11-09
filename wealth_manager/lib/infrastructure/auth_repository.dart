@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wealth_manager/infrastructure/firebase_auth_service.dart';
-import 'package:wealth_manager/infrastructure/account_remote_service.dart';
-import 'package:wealth_manager/infrastructure/models/auth/auth_failures.dart';
+import 'package:wealth_manager/infrastructure/accounts/account_remote_service.dart';
+import 'package:wealth_manager/infrastructure/core_models/auth/auth_failures.dart';
 
 class AuthenticationRepository {
   final FirebaseAuthService _firebaseAuthService;

@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/application/account/account_list_state.dart';
-import 'package:wealth_manager/infrastructure/account_repository.dart';
-import 'package:wealth_manager/infrastructure/models/account.dart';
+import 'package:wealth_manager/infrastructure/accounts/account_repository.dart';
+import 'package:wealth_manager/infrastructure/accounts/models/account.dart';
 
 class AccountListNotifier extends StateNotifier<AccountListState> {
   final AccountRepository _accountRepository;
@@ -27,15 +27,5 @@ class AccountListNotifier extends StateNotifier<AccountListState> {
       netWorth += acc.accBalance;
     }
     return netWorth;
-  }
-
-  void deleteAccount(String accountId) async {
-    final deleteResult =
-            await _accountRepository.deleteAccount(accountId);
-
-    deleteResult.fold(
-      (f) => state = AccountListState.failure(f),
-      (r) => () {},
-    );
   }
 }

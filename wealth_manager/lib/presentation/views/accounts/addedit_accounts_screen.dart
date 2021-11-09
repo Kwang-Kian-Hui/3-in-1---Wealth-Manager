@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/application/account/addedit_account_form_state.dart';
-import 'package:wealth_manager/infrastructure/models/account.dart';
+import 'package:wealth_manager/infrastructure/accounts/models/account.dart';
 import 'package:wealth_manager/presentation/views/accounts/addedit_account_form.dart';
 import 'package:wealth_manager/presentation/views/home_screen.dart';
 import 'package:wealth_manager/presentation/widgets/progress_indicator_overlay.dart';
@@ -18,23 +18,17 @@ class AddEditAccountScreen extends ConsumerStatefulWidget {
 
 class _AddEditAccountScreenState extends ConsumerState<AddEditAccountScreen> {
   @override
-  void initState() {
-    Future.microtask(() async {
-      final arguments = ModalRoute.of(context)?.settings.arguments;
-      if (arguments != null) {
-        ref
-            .read(addEditAccountFormNotifierProvider.notifier)
-            .initialiseValueForEditAccountForm(arguments as Account);
-      }
-    });
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final arguments = ModalRoute.of(context)?.settings.arguments;
+    if (arguments != null) {
+      ref
+          .read(addEditAccountFormNotifierProvider.notifier)
+          .initialiseValueForEditAccountForm(arguments as Account);
+    }
+
     ref.listen<AddEditAccountFormState>(addEditAccountFormNotifierProvider,
         (state) {
-      if (state.successful) {
+      if (state.insertOrUpdateSuccessful) {
         Navigator.popUntil(context, ModalRoute.withName(HomeScreen.routeName));
       }
       if (state.hasFirebaseFailure) {

@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wealth_manager/infrastructure/auth_repository.dart';
-import 'package:wealth_manager/infrastructure/models/auth/auth_state.dart';
+import 'package:wealth_manager/infrastructure/core_models/auth/auth_state.dart';
 
 class AuthNotifier extends StateNotifier<AuthState> {
   final AuthenticationRepository _authRepository;

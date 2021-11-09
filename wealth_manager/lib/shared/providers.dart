@@ -10,12 +10,12 @@ import 'package:wealth_manager/application/auth/sign_in_notifier.dart';
 import 'package:wealth_manager/application/auth/sign_up_notifier.dart';
 import 'package:wealth_manager/infrastructure/auth_repository.dart';
 import 'package:wealth_manager/infrastructure/firebase_auth_service.dart';
-import 'package:wealth_manager/infrastructure/account_remote_service.dart';
-import 'package:wealth_manager/infrastructure/account_repository.dart';
-import 'package:wealth_manager/infrastructure/models/account.dart';
-import 'package:wealth_manager/infrastructure/models/auth/auth_state.dart';
-import 'package:wealth_manager/infrastructure/models/auth/sign_in_state.dart';
-import 'package:wealth_manager/infrastructure/models/auth/sign_up_state.dart';
+import 'package:wealth_manager/infrastructure/accounts/account_remote_service.dart';
+import 'package:wealth_manager/infrastructure/accounts/account_repository.dart';
+import 'package:wealth_manager/infrastructure/accounts/models/account.dart';
+import 'package:wealth_manager/infrastructure/core_models/auth/auth_state.dart';
+import 'package:wealth_manager/infrastructure/core_models/auth/sign_in_state.dart';
+import 'package:wealth_manager/infrastructure/core_models/auth/sign_up_state.dart';
 
 final firestoreProvider = Provider((ref) => FirebaseFirestore.instance);
 final authProvider = Provider((ref) => FirebaseAuth.instance);

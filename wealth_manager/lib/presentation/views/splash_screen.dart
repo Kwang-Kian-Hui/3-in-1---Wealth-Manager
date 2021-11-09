@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wealth_manager/infrastructure/models/auth/auth_state.dart';
+import 'package:wealth_manager/infrastructure/core_models/auth/auth_state.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_in_screen.dart';
 import 'package:wealth_manager/presentation/views/home_screen.dart';
 import 'package:wealth_manager/shared/providers.dart';
