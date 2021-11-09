@@ -5,7 +5,7 @@ import 'package:wealth_manager/presentation/views/accounts/accounts_screen.dart'
 import 'package:wealth_manager/presentation/views/accounts/addedit_accounts_screen.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_in_screen.dart';
 import 'package:wealth_manager/presentation/views/auth/sign_up_screen.dart';
-import 'package:wealth_manager/presentation/views/expenses_screen.dart';
+import 'package:wealth_manager/presentation/views/expenses/tx_screen.dart';
 import 'package:wealth_manager/presentation/views/home_screen.dart';
 import 'package:wealth_manager/presentation/views/insurance_screen.dart';
 import 'package:wealth_manager/presentation/views/investment_screen.dart';
@@ -39,7 +39,7 @@ class _WealthManagerAppState extends ConsumerState<WealthManagerApp> {
           InvestmentScreen.routeName: (context) => InvestmentScreen(),
           InsuranceScreen.routeName: (context) => InsuranceScreen(),
           AccountsScreen.routeName: (context) => AccountsScreen(),
-          ExpensesScreen.routeName: (context) => ExpensesScreen(),
+          TransactionsScreen.routeName: (context) => TransactionsScreen(),
           SettingsScreen.routeName: (context) => SettingsScreen(),
 
           AddEditAccountScreen.routeName: (context) => AddEditAccountScreen(),

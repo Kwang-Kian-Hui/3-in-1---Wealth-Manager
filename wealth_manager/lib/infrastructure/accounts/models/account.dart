@@ -13,13 +13,13 @@ class Account{
     required this.accNote,
   });
 
-  Map<String, dynamic> toMap(){
-    return{
-      'accId': accId,
-      'accTitle': accName,
-      'accBalance': accBalance,
-      'accIcon': accIcon,
-      'accNote': accNote,
-    };
-  }
+  // Map<String, dynamic> toMap(){
+  //   return{
+  //     'accId': accId,
+  //     'accTitle': accName,
+  //     'accBalance': accBalance,
+  //     'accIcon': accIcon,
+  //     'accNote': accNote,
+  //   };
+  // }
 }
